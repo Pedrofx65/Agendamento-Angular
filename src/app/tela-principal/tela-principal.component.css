@@ -1,0 +1,424 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background-color: #DCE9E2;
+}
+
+header {
+  background-color: #002c45ef;  
+  padding: 20px 0;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.logo img {
+  width: 100px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  margin-right: 20px;
+}
+
+.nav-links li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #ccc;
+}
+
+.cta .btn {
+  background-color: #00856F;
+  color: #FFF;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.cta .btn:hover {
+  background-color: #00453A;
+  color: #00856F;
+}
+
+p {
+  color: #fff;
+  font-size: 30px;
+}
+
+span {
+  color: rebeccapurple;
+}
+
+.container {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.content {
+  flex: 2;
+  padding: 50px;
+}
+
+.sidebar {
+  flex: 1;
+  margin-left: 50px;
+  align-self: flex-end;
+  box-shadow: 0 0 1rem 0;
+  transition: 1s;
+}
+
+img:hover {
+  background-color: #00856F;
+}
+
+h1 {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.caption-big {
+  font-size: 52px;
+  margin-top: 20px;
+  color: #212529;
+}
+
+.caption-small {
+  font-size: 18px;
+  margin-top: 10px;
+  color: #495057;
+}
+
+.btn-agenda {
+  display: inline-block;
+  background-color: #00856F;
+  color: #fff;
+  font-size: 14px;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 50px;
+  margin-top: 20px;
+}
+
+.btn-agenda:hover {
+  background-color: #003128;
+}
+
+.info-boxes {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 50px;
+}
+
+.info-box {
+  flex: 1;
+  background-color: #fff;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.info-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 1rem 0;
+}
+
+.info-box h2 {
+  font-size: 2em;
+  color: #00453A;
+}
+
+.info-box p {
+  font-size: 0.7em;
+  color: #888;
+  margin-top: 5px;
+}
+
+.services-container {
+  background-color: #F7F9F9;
+  padding: 50px;
+  text-align: center;
+}
+
+.services-container h2 {
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: #00856F;
+}
+
+.services-container h3 {
+  margin-bottom: 40px;
+  font-size: 40px;
+  color: #212529;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.service {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.service:hover {
+  transform: translateY(-5px);
+}
+
+.service h4 {
+  margin-bottom: 10px;
+  font-size: 28px;
+  color: #212529;
+  text-align: left;
+}
+
+.service p {
+  font-size: 0.9em;
+  color: #495057;
+  text-align: left;
+}
+
+.about-us {
+  background-color: #FFFAF1;
+  padding: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.about-image {
+  flex: 1;
+  text-align: center;
+  margin-right: 50px;
+}
+
+.about-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 25px;
+  box-shadow: 0 0 1rem 0;
+}
+
+.about-content {
+  flex: 1;
+}
+
+.about-content h2 {
+  font-size: 14px;
+  margin-bottom: 20px;
+  color: #00453A;
+}
+
+.about-content h3 {
+  font-size: 45px;
+  margin-bottom: 20px;
+  color: #00453A;
+}
+
+.about-content p {
+  font-size: 14px;
+  color: #333;
+}
+
+.contact-us {
+  background-color: #FFFFFF;
+  padding: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.contact-info {
+  flex: 1;
+  margin-right: 50px;
+}
+
+.contact-info h2 {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  color: #00453A;
+}
+
+.contact-info p {
+  font-size: 1em;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.contact-info button {
+  background-color: #00453A;
+  color: #FFFFFF;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.contact-info button:hover {
+  background-color: #002F27;
+}
+
+.contact-image {
+  flex: 1;
+}
+
+.contact-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+.footer {
+  background-color:  #002c45ef;
+  color: #FFFFFF;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-left h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.footer-left p {
+  font-size: 0.8em;
+  margin-top: 0;
+}
+
+.footer-right {
+  display: flex;
+  align-items: center;
+}
+
+.footer-right a i {
+  width: 30px;
+  color: #FFFFFF;
+  margin-left: 10px;
+  font-size: 2rem;
+}
+
+#appointmentForm {
+  width: 300px;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#appointmentForm h2 {
+  margin-bottom: 10px;
+}
+
+#appointmentForm label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+#appointmentForm select, #appointmentForm input[type="date"], #appointmentForm input[type="time"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+#appointmentForm button {
+  width: 100%;
+  padding: 10px;
+  background-color: #00856F;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#appointmentForm button:hover {
+  background-color: #005740;
+}
+
+.team-section {
+  padding: 60px 20px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.team-content h2 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.team-content h3 {
+  font-size: 1.5rem;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.team-content p {
+  font-size: 1rem;
+  color: #555;
+  max-width: 800px;
+  margin: 0 auto 40px;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 0 20px;
+}
+
+.team-member {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.team-member:hover {
+  transform: translateY(-10px);
+}
+
+.team-member img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  object-fit: cover;
+}
+
+.team-member h4 {
+  font-size: 1.25rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.team-member p {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 5px;
+}
+
