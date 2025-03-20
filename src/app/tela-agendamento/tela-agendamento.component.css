@@ -1,0 +1,148 @@
+body {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    overflow-y: auto; 
+}
+
+body::before {
+    content: '';
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://img.freepik.com/fotos-gratis/armario-odontologico-com-varios-equipamentos-medicos_140725-7679.jpg?t=st=1742430053~exp=1742433653~hmac=079d03355082d0ea168bc9f04958aea3ba354a04e8c56931468e18d71b5debfa&w=996'); /* Substitua pelo caminho da sua imagem */
+    background-size: cover;
+    background-position: center;
+    opacity: 0.5; 
+    z-index: -1; 
+}
+
+p {
+    color: #fff;
+    font-size: 25px;
+    margin: 0;
+}
+
+span {
+    color: rebeccapurple;
+}
+
+header {
+    background-color: #002c45ef;
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1;
+}
+
+main {
+    margin: 2rem auto;
+    padding: 2rem;
+    background: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+main:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+h1 {
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    color: #002c45ef;
+    text-align: center;
+}
+
+form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #002c45ef;
+}
+
+input,
+select,
+button {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus,
+select:focus {
+    border-color: #002c45ef;
+    box-shadow: 0 0 5px rgba(0, 44, 69, 0.5);
+    outline: none;
+}
+
+button {
+    background-color: #00453A;
+    color: white;
+    border: none;
+    cursor: pointer;
+    height: 3rem;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #002c45ef;
+}
+
+#agendamentosList {
+    list-style: none;
+    padding: 0;
+}
+
+#agendamentosList li {
+    padding: 0.5rem;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 0.5rem;
+}
+
+.user-options a {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: white;
+    color: black;
+    text-decoration: none;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.user-options a:hover {
+    background-color: #002c45ef;
+    color: white;
+}
+
+.logo a {
+    text-decoration: none;
+}
+
+.logo a:hover {
+    opacity: 0.8;
+}

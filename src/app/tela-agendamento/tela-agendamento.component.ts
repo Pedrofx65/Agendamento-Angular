@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tela-agendamento',
@@ -7,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './tela-agendamento.component.css'
 })
 export class TelaAgendamentoComponent {
-
+  
 }

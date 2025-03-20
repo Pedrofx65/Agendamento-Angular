@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tela-principal',
@@ -7,5 +8,9 @@ import { Component } from '@angular/core';
   styleUrl: './tela-principal.component.css'
 })
 export class TelaPrincipalComponent {
+  constructor(private router: Router) {}
 
+  irParaAgendamento() {
+    this.router.navigate(['/agendamento']);
+  }
 }
