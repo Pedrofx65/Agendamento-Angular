@@ -82,6 +82,7 @@ span {
 .sidebar {
   flex: 1;
   margin-left: 50px;
+  margin-top: 15px;
   align-self: flex-end;
   box-shadow: 0 0 1rem 0;
   transition: 1s;
