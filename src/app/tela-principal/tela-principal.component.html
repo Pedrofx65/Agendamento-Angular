@@ -1,230 +1,254 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <title>Projeto - Odonto</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Projeto - Odonto</title>
 </head>
+
 <body>
-  <header>
-    <nav>
-        <div class="logo">
-            <p>Odonto<span>Hub</span></p>
-        </div>
-        <ul class="nav-links">
-            <li><a href="#">Início</a></li>
-            <li><a href="#">Sobre</a></li>
-            <li><a href="#">Serviços</a></li>
-            <li><a href="#">Depoimentos</a></li>
-            <li><a href="#">Equipe</a></li>
-            <li><a href="#">Localização</a></li>
-        </ul>
-        <div class="cta">
-            <a (click)="irParaAgendamento()" class="btn">AGENDAR CONSULTA</a>
-        </div>
-    </nav>
-</header>
-
-<div class="container">
-  <div class="content">
-      <h1>BOAS-VINDAS A Odonto<span>Hub</span>👋</h1>
-      <p class="caption-big">Odontólogia de forma simplificada para todos</p>
-      <p class="caption-small">Os médicos da DoctorCare vão além dos sintomas para tratar a causa raiz de sua doença e proporcionar uma cura a longo prazo.</p>
-      <a href="#" class="btn-agenda">AGENDE SUA CONSULTA</a>
-  </div>
-  <div class="sidebar">
-      <img src="assets/Dentista.jpg" alt="Imagem de Exemplo">
-  </div>
-</div>
-
-<div class="info-boxes">
-  <div class="info-box">
-      <h2>+3.500</h2>
-      <p>Pacientes Atendidos</p>
-  </div>
-  <div class="info-box">
-      <h2>+10</h2>
-      <p>Especialistas Disponíveis</p>
-  </div>
-  <div class="info-box">
-      <h2>+10 Anos</h2>
-      <p>de Mercado</p>
-  </div>
-</div>
-
-<div class="services-container">
-  <h2>SERVIÇOS</h2>
-  <h3>Como podemos ajudá-lo a se sentir melhor?</h3>
-  <div class="services-grid">
-      <div class="service">
-          <h4>Problemas Digestivos</h4>
-          <p>"Oferecemos soluções abrangentes para condições gastrointestinais, promovendo saúde e bem-estar digestivo."</p>
-      </div>
-      <div class="service">
-          <h4>Saúde Hormonal</h4>
-          <p>Promovemos equilíbrio hormonal, essencial para saúde e bem-estar duradouros, com tratamentos personalizados.</p>
-      </div>
-      <div class="service">
-          <h4>Bem-estar Mental</h4>
-          <p>Priorizamos o bem-estar mental com abordagens integrativas, oferecendo suporte e tratamentos personalizados para uma vida plena.</p>
-      </div>
-      <div class="service">
-          <h4>Cuidados Pediátricos</h4>
-          <p>Nossa dedicação aos cuidados pediátricos inclui tratamentos compassivos e abordagens integrativas para o bem-estar infantil.</p>
-      </div>
-      <div class="service">
-          <h4>Autoimune e Inflamação</h4>
-          <p>Abordamos questões de autoimunidade e inflamação com tratamentos especializados, visando à saúde plena e qualidade de vida.</p>
-      </div>
-      <div class="service">
-          <h4>Saúde do Coração</h4>
-          <p>Promovemos a saúde do coração com tratamentos especializados e abordagens preventivas, para uma vida ativa e plena.</p>
-      </div>
-  </div>
-</div>
-
-
-<section class="about-us">
-  <div class="about-content">
-      <h2>Sobre Nós</h2>
-      <h3>Entenda quem somos e por que existimos</h3>
-      <p style="text-align: justify;">Somos a OdontoHub, uma equipe dedicada à inovação em saúde Bucal. Nosso objetivo é oferecer soluções tecnológicas que simplifiquem o acesso à assistência médica, proporcionando maior conveniência e eficiência para pacientes e profissionais de saúde.
-
-        Combinamos expertise em tecnologia e conhecimento em saúde para desenvolver plataformas intuitivas e seguras, que conectam pacientes a médicos qualificados de forma rápida e eficaz.
-        
-        Nossa missão é promover uma revolução na prestação de serviços de saúde, tornando-os mais acessíveis, acessíveis e centrados no paciente. Estamos comprometidos em melhorar a vida das pessoas por meio da inovação tecnológica e do cuidado com a saúde.
-        
-        Junte-se a nós nessa jornada e faça parte da transformação do setor de saúde para um futuro mais saudável e sustentável.
-        
-        </p>
-  </div>
-  <div class="about-image" style="margin-left: 20px;">
-      <img src="assets/medica.coracao.jpg" alt="Imagem Sobre Nós">
-  </div>
-</section>
-
-<section class="team-section">
-    <div class="team-content">
-        <h2>Nossa Equipe</h2>
-        <h3>Conheça os profissionais que cuidam do seu sorriso</h3>
-        <p style="text-align: justify;">Nossa equipe é composta por dentistas altamente qualificados e experientes, dedicados a proporcionar o melhor atendimento e resultados para nossos pacientes. Cada profissional traz consigo uma paixão pela odontologia e um compromisso com a excelência.</p>
-    </div>
-    <div class="team-grid">
-        <div class="team-member">
-            <img src="https://img.freepik.com/fotos-premium/um-homem-de-roupa-verde-esta-em-uma-sala-com-uma-cadeira-dentaria-e-equipamentos-dentarios_975681-86985.jpg?w=826" alt="Dr. João Silva">
-            <h4>Dr. João Silva</h4>
-            <p>Especialista em Ortodontia</p>
-            <p>Com mais de 10 anos de experiência, o Dr. João é referência em tratamentos ortodônticos.</p>
-        </div>
-        <div class="team-member">
-            <img src="https://website.cfo.org.br/wp-content/uploads/2018/03/dentista.jpg" alt="Dra. Maria Oliveira">
-            <h4>Dra. Maria Oliveira</h4>
-            <p>Especialista em Implantodontia</p>
-            <p>A Dra. Maria é especializada em implantes dentários e reabilitação oral.</p>
-        </div>
-        <div class="team-member">
-            <img src="https://img.freepik.com/fotos-premium/um-homem-de-roupa-azul-esta-em-uma-sala-com-uma-escova-de-dentes-na-mao_1319323-406.jpg?w=826" alt="Dr. Carlos Mendes">
-            <h4>Dr. Carlos Mendes</h4>
-            <p>Especialista em Endodontia</p>
-            <p>O Dr. Carlos é experiente em tratamentos de canal e salvação de dentes.</p>
-        </div>
-        <div class="team-member">
-            <img src="https://img.freepik.com/fotos-premium/retrato-de-uma-bela-dentista-sorridente-de-pe-com-os-bracos-cruzados-em-sua-clinica-dentaria_1025753-105304.jpg?w=740" alt="Dra. Ana Costa">
-            <h4>Dra. Ana Costa</h4>
-            <p>Especialista em Periodontia</p>
-            <p>A Dra. Ana é especializada em tratamentos gengivais e saúde periodontal.</p>
+    <header class="home">
+        <div id="navbar" class="navbar top">
+            <a class="logo" href="#">
+                <h1 style="line-height: 1; font-family: 'Alegreya Sans SC', sans-serif;" class="color-primary">OdontoHub</h1>
+                <h2 style="line-height: 1; font-family: 'Alegreya Sans SC', sans-serif;">Clinica Odontológica</h2>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#">Início</a></li>
+                    <li><a href="#">Sobre</a></li>
+                    <li><a href="#">Serviços</a></li>
+                    <li><a href="#">Depoimentos</a></li>
+                    <li><a href="#">Equipe</a></li>
+                    <li><a href="#">Localização</a></li>
+                </ul>
+            </nav>
         </div>
 
-        <div class="team-member">
-            <img src="https://img.freepik.com/fotos-gratis/medico-sorridente-com-estetoscopio_23-2147790956.jpg" alt="Dr. Pedro Almeida">
-            <h4>Dr. Pedro Almeida</h4>
-            <p>Especialista em Odontopediatria</p>
-            <p>O Dr. Pedro é dedicado ao cuidado dental de crianças, com abordagem lúdica e acolhedora.</p>
-        </div>
-        <div class="team-member">
-            <img src="https://img.freepik.com/fotos-gratis/medica-sorridente-com-estetoscopio_23-2147790957.jpg" alt="Dra. Fernanda Lima">
-            <h4>Dra. Fernanda Lima</h4>
-            <p>Especialista em Dentística</p>
-            <p>A Dra. Fernanda é especializada em estética dental e restaurações.</p>
-        </div>
-        <div class="team-member">
-            <img src="https://img.freepik.com/fotos-gratis/medico-sorridente-com-estetoscopio_23-2147790958.jpg" alt="Dr. Ricardo Souza">
-            <h4>Dr. Ricardo Souza</h4>
-            <p>Especialista em Cirurgia Bucomaxilofacial</p>
-            <p>O Dr. Ricardo é experiente em cirurgias complexas e traumas faciais.</p>
-        </div>
-        <div class="team-member">
-            <img src="https://img.freepik.com/fotos-gratis/medica-sorridente-com-estetoscopio_23-2147790959.jpg" alt="Dra. Camila Rocha">
-            <h4>Dra. Camila Rocha</h4>
-            <p>Especialista em Prótese Dentária</p>
-            <p>A Dra. Camila é especializada em próteses fixas e removíveis.</p>
-        </div>
-    </div>
-</section>
-
-<section class="location-section">
-    <div class="location-content">
-        <h2>Nossa Localização</h2>
-        <h3>Venha nos visitar!</h3>
-        <p>Estamos localizados em um local conveniente e de fácil acesso, prontos para cuidar do seu sorriso com todo o conforto e qualidade que você merece.</p>
-    </div>
-    <div class="location-container">
-        <div class="location-info">
-            <div class="info-item">
-                <i class="fas fa-map-marker-alt"></i>
-                <h4>Endereço</h4>
-                <p>Av. Araúcarias, Águas Claras, 346</p>
+        <div class="bienvenida">
+            <div class="bien2">
+                <h1 style="line-height: 1; font-family: 'Alegreya Sans SC', sans-serif;" >Boas vindas</h1>
+                <p>Os dentistas da OdontoHub vão além dos sintomas para tratar a causa raiz de sua doença e proporcionar
+                    uma cura a longo prazo.</p>
+                <a onclick="irParaAgendamento()" class="btn">Agendar</a>
             </div>
-            <div class="info-item">
-                <i class="fas fa-clock"></i>
-                <h4>Horário de Funcionamento</h4>
-                <p>Segunda a Sexta: 08h às 18h<br>Sábado: 09h às 13h<br>Domingo: Fechado</p>
-            </div>      
         </div>
-        <div class="location-map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3839.123456789012!2d-48.03098768456789!3d-15.830987654321012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935a2f8b4d5d5d5d%3A0x1c3b9b9b9b9b9b9b!2sAvenida%20Arauc%C3%A1rias%2C%20%C3%81guas%20Claras%2C%20Bras%C3%ADlia%20-%20DF!5e0!3m2!1spt-BR!2sbr!4v1622649400000!5m2!1spt-BR!2sbr" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-        </div>
-    </div>
-</section>
+    </header>
 
-<section class="contact-us">
-    <div class="contact-info">
-      <h2>Entre em contato</h2>
-      <p>Estamos aqui para ajudar. Entre em contato para agendar sua consulta ou tirar dúvidas.</p>
-      <div class="contact-details">
-        <div class="detail-item">
-          <i class="fas fa-map-marker-alt"></i>
-          <p>Av. Araucárias, Águas Claras, 346</p>
+    <div class="info-boxes" style="margin-top: 15px;">
+        <div class="info-box">
+            <h2>+3.500</h2>
+            <p>Pacientes Atendidos</p>
         </div>
-        <div class="detail-item">
-          <i class="fas fa-envelope"></i>
-          <p>contato&#64;doctorcare.com</p>
+        <div class="info-box">
+            <h2>+10</h2>
+            <p>Especialistas Disponíveis</p>
         </div>
-        <div class="detail-item">
-          <i class="fas fa-phone"></i>
-          <p>(61) 1234-5678</p>
+        <div class="info-box">
+            <h2>+10 Anos</h2>
+            <p>de Mercado</p>
         </div>
-      </div>
-      <a href="#" class="btn-agenda">
-        <i class="fas fa-calendar-check"></i> Agende sua consulta
-      </a>
     </div>
-  </section>
-  
-  <footer class="footer">
-    <div class="footer-left">
-      <h2>Odonto <span>Hub</span></h2>
-      <p>Todos os direitos reservados a Pedro Henrique</p>
+
+    <div class="services-container">
+        <h2>SERVIÇOS</h2>
+        <h3>Como podemos ajudá-lo a se sentir melhor?</h3>
+        <div class="services-grid">
+            <div class="service">
+                <h4>Problemas Digestivos</h4>
+                <p>"Oferecemos soluções abrangentes para condições gastrointestinais, promovendo saúde e bem-estar
+                    digestivo."</p>
+            </div>
+            <div class="service">
+                <h4>Saúde Hormonal</h4>
+                <p>Promovemos equilíbrio hormonal, essencial para saúde e bem-estar duradouros, com tratamentos
+                    personalizados.</p>
+            </div>
+            <div class="service">
+                <h4>Bem-estar Mental</h4>
+                <p>Priorizamos o bem-estar mental com abordagens integrativas, oferecendo suporte e tratamentos
+                    personalizados para uma vida plena.</p>
+            </div>
+            <div class="service">
+                <h4>Cuidados Pediátricos</h4>
+                <p>Nossa dedicação aos cuidados pediátricos inclui tratamentos compassivos e abordagens integrativas
+                    para o bem-estar infantil.</p>
+            </div>
+            <div class="service">
+                <h4>Autoimune e Inflamação</h4>
+                <p>Abordamos questões de autoimunidade e inflamação com tratamentos especializados, visando à saúde
+                    plena e qualidade de vida.</p>
+            </div>
+            <div class="service">
+                <h4>Saúde do Coração</h4>
+                <p>Promovemos a saúde do coração com tratamentos especializados e abordagens preventivas, para uma vida
+                    ativa e plena.</p>
+            </div>
+        </div>
     </div>
-    <div class="footer-right">
-      <a href="#" aria-label="Instagram"><i class='bx bxl-instagram'></i></a>
-      <a href="#" aria-label="Twitter"><i class='bx bxl-twitter'></i></a>
-      <a href="#" aria-label="WhatsApp"><i class='bx bxl-whatsapp'></i></a>
-    </div>
-  </footer>
+
+
+    <section class="about-us">
+        <div class="about-content">
+            <h2>Sobre Nós</h2>
+            <h3>Entenda quem somos e por que existimos</h3>
+            <p style="text-align: justify;">Somos a OdontoHub, uma equipe dedicada à inovação em saúde Bucal. Nosso
+                objetivo é oferecer soluções tecnológicas que simplifiquem o acesso à assistência médica, proporcionando
+                maior conveniência e eficiência para pacientes e profissionais de saúde.
+
+                Combinamos expertise em tecnologia e conhecimento em saúde para desenvolver plataformas intuitivas e
+                seguras, que conectam pacientes a médicos qualificados de forma rápida e eficaz.
+
+                Nossa missão é promover uma revolução na prestação de serviços de saúde, tornando-os mais acessíveis,
+                acessíveis e centrados no paciente. Estamos comprometidos em melhorar a vida das pessoas por meio da
+                inovação tecnológica e do cuidado com a saúde.
+
+                Junte-se a nós nessa jornada e faça parte da transformação do setor de saúde para um futuro mais
+                saudável e sustentável.
+
+            </p>
+        </div>
+        <div class="about-image" style="margin-left: 20px;">
+            <img src="assets/medica.coracao.jpg" alt="Imagem Sobre Nós">
+        </div>
+    </section>
+
+    <section class="team-section">
+        <div class="team-content">
+            <h2>Nossa Equipe</h2>
+            <h3>Conheça os profissionais que cuidam do seu sorriso</h3>
+            <p style="text-align: justify;">Nossa equipe é composta por dentistas altamente qualificados e experientes,
+                dedicados a proporcionar o melhor atendimento e resultados para nossos pacientes. Cada profissional traz
+                consigo uma paixão pela odontologia e um compromisso com a excelência.</p>
+        </div>
+        <div class="team-grid">
+            <div class="team-member">
+                <img src="https://img.freepik.com/fotos-premium/um-homem-de-roupa-verde-esta-em-uma-sala-com-uma-cadeira-dentaria-e-equipamentos-dentarios_975681-86985.jpg?w=826"
+                    alt="Dr. João Silva">
+                <h4>Dr. João Silva</h4>
+                <p>Especialista em Ortodontia</p>
+                <p>Com mais de 10 anos de experiência, o Dr. João é referência em tratamentos ortodônticos.</p>
+            </div>
+            <div class="team-member">
+                <img src="https://website.cfo.org.br/wp-content/uploads/2018/03/dentista.jpg" alt="Dra. Maria Oliveira">
+                <h4>Dra. Maria Oliveira</h4>
+                <p>Especialista em Implantodontia</p>
+                <p>A Dra. Maria é especializada em implantes dentários e reabilitação oral.</p>
+            </div>
+            <div class="team-member">
+                <img src="https://img.freepik.com/fotos-premium/um-homem-de-roupa-azul-esta-em-uma-sala-com-uma-escova-de-dentes-na-mao_1319323-406.jpg?w=826"
+                    alt="Dr. Carlos Mendes">
+                <h4>Dr. Carlos Mendes</h4>
+                <p>Especialista em Endodontia</p>
+                <p>O Dr. Carlos é experiente em tratamentos de canal e salvação de dentes.</p>
+            </div>
+            <div class="team-member">
+                <img src="https://img.freepik.com/fotos-premium/retrato-de-uma-bela-dentista-sorridente-de-pe-com-os-bracos-cruzados-em-sua-clinica-dentaria_1025753-105304.jpg?w=740"
+                    alt="Dra. Ana Costa">
+                <h4>Dra. Ana Costa</h4>
+                <p>Especialista em Periodontia</p>
+                <p>A Dra. Ana é especializada em tratamentos gengivais e saúde periodontal.</p>
+            </div>
+
+            <div class="team-member">
+                <img src="https://img.freepik.com/fotos-gratis/medico-estomatologista-explicando-higiene-dental-adequada-para-paciente-segurando-amostra-de-mandibula-humana_158595-7678.jpg?t=st=1742687197~exp=1742690797~hmac=e8ff59a760dfac276f27ae9eccbe91130bea433e9579b2e3d88d8f8b3963ecc6&w=996"
+                    alt="Dr. Pedro Almeida">
+                <h4>Dr. Pedro Almeida</h4>
+                <p>Especialista em Odontopediatria</p>
+                <p>O Dr. Pedro é dedicado ao cuidado dental de crianças, com abordagem lúdica e acolhedora.</p>
+            </div>
+            <div class="team-member">
+                <img src="https://img.freepik.com/fotos-gratis/mulher-confiante-com-gesto-de-bracos-cruzados_53876-108629.jpg?t=st=1742687267~exp=1742690867~hmac=dc9e6123c9e3502bba3f507e99c98fee892ee44b056f156480fb0d93277d72fb&w=996"
+                    alt="Dra. Fernanda Lima">
+                <h4>Dra. Fernanda Lima</h4>
+                <p>Especialista em Dentística</p>
+                <p>A Dra. Fernanda é especializada em estética dental e restaurações.</p>
+            </div>
+            <div class="team-member">
+                <img src="https://img.freepik.com/fotos-premium/retrato-de-um-jovem-sorridente-contra-um-fundo-branco_1048944-26575610.jpg?w=996"
+                    alt="Dr. Ricardo Souza">
+                <h4>Dr. Ricardo Souza</h4>
+                <p>Especialista em Cirurgia Bucomaxilofacial</p>
+                <p>O Dr. Ricardo é experiente em cirurgias complexas e traumas faciais.</p>
+            </div>
+            <div class="team-member">
+                <img src="https://img.freepik.com/fotos-gratis/sorrindo-feliz-com-uma-mao-no-quadril-e-confiante_1194-406798.jpg?t=st=1742687086~exp=1742690686~hmac=b516dbdb17f333d80c1b3c19c017101bcfe57d5752bbf22cac06775779e08350&w=996"
+                    alt="Dra. Camila Rocha">
+                <h4>Dra. Camila Rocha</h4>
+                <p>Especialista em Prótese Dentária</p>
+                <p>A Dra. Camila é especializada em próteses fixas e removíveis.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="location-section">
+        <div class="location-content">
+            <h2>Nossa Localização</h2>
+            <h3>Venha nos visitar!</h3>
+            <p>Estamos localizados em um local conveniente e de fácil acesso, prontos para cuidar do seu sorriso com
+                todo o conforto e qualidade que você merece.</p>
+        </div>
+        <div class="location-container">
+            <div class="location-info">
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h4>Endereço</h4>
+                    <p>Av. Araúcarias, Águas Claras, 346</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-clock"></i>
+                    <h4>Horário de Funcionamento</h4>
+                    <p>Segunda a Sexta: 08h às 18h<br>Sábado: 09h às 13h<br>Domingo: Fechado</p>
+                </div>
+            </div>
+            <div class="location-map">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3839.123456789012!2d-48.03098768456789!3d-15.830987654321012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935a2f8b4d5d5d5d%3A0x1c3b9b9b9b9b9b9b!2sAvenida%20Arauc%C3%A1rias%2C%20%C3%81guas%20Claras%2C%20Bras%C3%ADlia%20-%20DF!5e0!3m2!1spt-BR!2sbr!4v1622649400000!5m2!1spt-BR!2sbr"
+                    width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-us">
+        <div class="contact-info">
+            <h2>Entre em contato</h2>
+            <p>Estamos aqui para ajudar. Entre em contato para agendar sua consulta ou tirar dúvidas.</p>
+            <div class="contact-details">
+                <div class="detail-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>Av. Araucárias, Águas Claras, 346</p>
+                </div>
+                <div class="detail-item">
+                    <i class="fas fa-envelope"></i>
+                    <p>contato&#64;doctorcare.com</p>
+                </div>
+                <div class="detail-item">
+                    <i class="fas fa-phone"></i>
+                    <p>(61) 1234-5678</p>
+                </div>
+            </div>
+            <a href="#" class="btn-agenda">
+                <i class="fas fa-calendar-check"></i> Agende sua consulta
+            </a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-left">
+            <h2>Odonto<span>Hub</span></h2>
+            <p>Todos os direitos reservados a Pedro Henrique.</p>
+        </div>
+        <div class="footer-right">
+            <a href="#" aria-label="Instagram"><i class='bx bxl-instagram'></i></a>
+            <a href="#" aria-label="Twitter"><i class='bx bxl-twitter'></i></a>
+            <a href="#" aria-label="WhatsApp"><i class='bx bxl-whatsapp'></i></a>
+        </div>
+    </footer>
 </body>
-</html>
 
+</html>
