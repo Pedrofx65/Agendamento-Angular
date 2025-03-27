@@ -13,4 +13,6 @@ export class TelaPrincipalComponent {
   irParaAgendamento() {
     this.router.navigate(['/agendamento']);
   }
+
+  
 }
