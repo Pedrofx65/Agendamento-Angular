@@ -3,6 +3,12 @@ import { TelaPrincipalComponent } from './tela-principal/tela-principal.componen
 import { TelaAgendamentoComponent } from './tela-agendamento/tela-agendamento.component';
 
 export const routes: Routes = [
-  { path: '', component: TelaPrincipalComponent },
-  { path: 'agendamento', component: TelaAgendamentoComponent }
+  { 
+    path: '', 
+    component: TelaPrincipalComponent 
+  },
+  { 
+    path: 'agendamento', 
+    component: TelaAgendamentoComponent 
+  }
 ];
