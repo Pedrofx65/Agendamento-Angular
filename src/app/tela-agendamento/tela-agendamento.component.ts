@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 interface Profissional {
   id: number;
@@ -38,7 +39,6 @@ export class TelaAgendamentoComponent implements OnInit {
     { value: 'avaliacao', label: 'Avaliação' },
     { value: 'extracao', label: 'Extração Dentária' },
     { value: 'cirurgias', label: 'Cirúrgias' },
-    { value: 'outros', label: 'Outros' }
   ];
 
   profissionais: Profissional[] = [
@@ -77,7 +77,7 @@ export class TelaAgendamentoComponent implements OnInit {
   profissionaisFiltrados: Profissional[] = [];
   profissionalSelecionado: Profissional | null = null;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private router: Router) {
     const today = new Date();
     this.minDate = today.toISOString().split('T')[0];
     
@@ -200,7 +200,6 @@ export class TelaAgendamentoComponent implements OnInit {
     this.showConfirmationModal = false;
     this.submitting = true;
     
-    // Cria o objeto de agendamento
     const novoAgendamento = {
       ...this.agendamentoForm.value,
       profissional: this.profissionalSelecionado,
@@ -208,13 +207,11 @@ export class TelaAgendamentoComponent implements OnInit {
       id: Date.now()
     };
     
-    // Salva no localStorage
     const agendamentosSalvos = localStorage.getItem('agendamentosOdontoHub');
     let agendamentos = agendamentosSalvos ? JSON.parse(agendamentosSalvos) : [];
     agendamentos.push(novoAgendamento);
     localStorage.setItem('agendamentosOdontoHub', JSON.stringify(agendamentos));
-    
-    // Feedback para o usuário
+     
     setTimeout(() => {
       this.submitting = false;
       this.successMessage = 'Agendamento realizado com sucesso!';
@@ -236,5 +233,9 @@ export class TelaAgendamentoComponent implements OnInit {
 
   cancelarAgendamento(): void {
     this.showConfirmationModal = false;
+  }
+
+  irParaAgendados() {
+    this.router.navigate(['/agendados']);
   }
 }

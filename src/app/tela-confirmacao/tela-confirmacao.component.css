@@ -1,0 +1,613 @@
+/* Estilos gerais (consistentes com a tela de agendamento) */
+.scheduling-container {
+  position: relative;
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+}
+
+/* Header (mantido igual) */
+.main-header {
+  background: linear-gradient(135deg, #00453A 0%, #002c45ef 100%);
+  color: white;
+  padding: 1rem 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 10;
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.logo:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+.dental-icon {
+  font-size: 2rem;
+  margin-right: 0.8rem;
+  color: #4fc3f7;
+}
+
+.logo h1 {
+  font-size: 1.8rem;
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.logo span {
+  color: #4fc3f7;
+}
+
+.tagline {
+  font-size: 0.9rem;
+  margin-left: 3.5rem;
+  margin-top: -0.5rem;
+  font-weight: 300;
+  opacity: 0.9;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+}
+
+.btn-agendamento {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.7rem 1.5rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+}
+
+.btn-agendamento i {
+  margin-right: 0.5rem;
+}
+
+.btn-agendamento:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Main Content */
+.main-content {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.agendamentos-section {
+  margin-bottom: 3rem;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.section-header h2 {
+  font-size: 2rem;
+  color: #00453A;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section-header h2 i {
+  margin-right: 0.8rem;
+  color: #4fc3f7;
+}
+
+.section-subtitle {
+  color: #666;
+  font-size: 1rem;
+  margin-top: 0;
+}
+
+/* Lista de Agendamentos */
+.agendamentos-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.agendamento-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+  display: flex;
+  position: relative;
+  transition: all 0.3s ease;
+  border-left: 4px solid #4fc3f7;
+}
+
+.agendamento-card.upcoming {
+  border-left-color: #4fc3f7;
+}
+
+.agendamento-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.card-date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 60px;
+  margin-right: 1.5rem;
+  padding-right: 1.5rem;
+  border-right: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.date-day {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #00453A;
+  line-height: 1;
+}
+
+.date-month {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #666;
+  letter-spacing: 1px;
+  margin-top: 0.25rem;
+}
+
+.card-content {
+  flex: 1;
+}
+
+.servico-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.servico-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  background-color: rgba(79, 195, 247, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+  color: #00453A;
+  font-size: 1.25rem;
+}
+
+.servico-info h3 {
+  font-size: 1.1rem;
+  margin: 0 0 0.25rem 0;
+  color: #00453A;
+}
+
+.profissional-name {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0;
+}
+
+.agendamento-details {
+  margin: 1rem 0;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.detail-item i {
+  width: 20px;
+  color: #666;
+  margin-right: 0.5rem;
+  text-align: center;
+}
+
+.lembretes-section {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.section-title i {
+  color: #00453A;
+  margin-right: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.section-title span {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #666;
+  text-transform: uppercase;
+}
+
+.lembretes-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.reminder-badge {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 50px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+
+.reminder-badge i {
+  margin-right: 0.25rem;
+  font-size: 0.8rem;
+}
+
+.reminder-badge.sms {
+  background-color: rgba(25, 118, 210, 0.1);
+  color: #1976d2;
+}
+
+.reminder-badge.whatsapp {
+  background-color: rgba(76, 175, 80, 0.1);
+  color: #388e3c;
+}
+
+.reminder-badge.email {
+  background-color: rgba(142, 36, 170, 0.1);
+  color: #8e24aa;
+}
+
+.card-status {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  border-radius: 50px;
+  background-color: rgba(0, 69, 58, 0.1);
+  color: #00453A;
+}
+
+.card-status.upcoming {
+  background-color: rgba(79, 195, 247, 0.1);
+  color: #4fc3f7;
+}
+
+.cancel-btn {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: #d32f2f;
+  font-size: 0.8rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.cancel-btn i {
+  margin-right: 0.25rem;
+}
+
+.cancel-btn:hover {
+  background-color: rgba(211, 47, 47, 0.1);
+}
+
+/* Estado vazio */
+.empty-state {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  margin-top: 2rem;
+}
+
+.empty-state-icon {
+  font-size: 3rem;
+  color: #4fc3f7;
+  margin-bottom: 1rem;
+  opacity: 0.7;
+}
+
+.empty-state h3 {
+  font-size: 1.5rem;
+  color: #00453A;
+  margin-bottom: 0.5rem;
+}
+
+.empty-state p {
+  color: #666;
+  margin-bottom: 1.5rem;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #00453A 0%, #002c45ef 100%);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 15px rgba(0, 69, 58, 0.2);
+}
+
+.btn-primary i {
+  margin-right: 0.5rem;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 69, 58, 0.3);
+}
+
+/* Footer (mantido igual) */
+.main-footer {
+  background: linear-gradient(135deg, #002c45ef 0%, #00453A 100%);
+  color: white;
+  padding: 3rem 0 0;
+  margin-top: 3rem;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.footer-section {
+  margin-bottom: 2rem;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.footer-logo i {
+  font-size: 1.8rem;
+  margin-right: 0.8rem;
+  color: #4fc3f7;
+}
+
+.footer-logo span {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.footer-about {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  opacity: 0.9;
+  margin-bottom: 1.5rem;
+}
+
+.socials {
+  display: flex;
+  gap: 1rem;
+}
+
+.socials a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.socials a:hover {
+  background-color: #4fc3f7;
+  transform: translateY(-3px);
+}
+
+.footer-section h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.footer-section h3::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 50px;
+  height: 2px;
+  background-color: #4fc3f7;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 0.8rem;
+}
+
+.footer-section ul li a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.footer-section ul li a:hover {
+  color: #4fc3f7;
+  padding-left: 5px;
+}
+
+.contact p {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.8rem;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.contact i {
+  margin-right: 0.8rem;
+  color: #4fc3f7;
+  width: 20px;
+  text-align: center;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding: 1.5rem 0;
+  background-color: rgba(0, 0, 0, 0.1);
+  margin-top: 2rem;
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .header-content {
+      flex-direction: column;
+      text-align: center;
+  }
+  
+  .logo-container {
+      justify-content: center;
+      margin-bottom: 1rem;
+  }
+  
+  .tagline {
+      margin-left: 0;
+      margin-top: 0.5rem;
+      width: 100%;
+  }
+  
+  .navigation {
+      justify-content: center;
+      width: 100%;
+  }
+  
+  .btn-agendamento {
+      width: 100%;
+      justify-content: center;
+  }
+  
+  .agendamentos-list {
+      grid-template-columns: 1fr;
+  }
+  
+  .agendamento-card {
+      flex-direction: column;
+  }
+  
+  .card-date {
+      flex-direction: row;
+      align-items: center;
+      margin-right: 0;
+      margin-bottom: 1rem;
+      padding-right: 0;
+      padding-bottom: 1rem;
+      border-right: none;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      width: 100%;
+  }
+  
+  .date-day {
+      margin-right: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-header h2 {
+      font-size: 1.5rem;
+  }
+  
+  .empty-state {
+      padding: 2rem 1rem;
+  }
+  
+  .empty-state h3 {
+      font-size: 1.3rem;
+  }
+  
+  .footer-content {
+      grid-template-columns: 1fr;
+      text-align: center;
+  }
+  
+  .footer-section h3::after {
+      left: 50%;
+      transform: translateX(-50%);
+  }
+  
+  .socials {
+      justify-content: center;
+  }
+}

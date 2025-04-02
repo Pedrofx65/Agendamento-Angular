@@ -3,193 +3,253 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agendamento Online</title>
+    <title>Agendamento Online | OdontoHub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<body>
+<body style="background-image: url(assets/background.jpg); ">
     <div class="scheduling-container">
-        <header>
-          <div class="logo">
-            <a routerLink="/"><p>Odonto<span>Hub</span></p></a>
-          </div>
-          <div class="user-options">
-            <a routerLink="/agendamentos">Ver Agendamentos</a>
-          </div>
+        <header class="main-header">
+            <div class="header-content">
+                <div class="logo-container">
+                    <a routerLink="/" class="logo">
+                        <i class="fas fa-tooth dental-icon"></i>
+                        <h1>Odonto<span>Hub</span></h1>
+                    </a>
+                    <p class="tagline">Sua saúde bucal em primeiro lugar</p>
+                </div>
+                
+                <nav class="navigation">
+                    <div class="user-options">
+                        <a class="btn-agendados" (click)="irParaAgendados()">
+                            <i class="far fa-calendar-alt"></i> Meus Agendamentos
+                        </a>
+                        <a class="btn-agendados" href="/" style="margin-left: 15px;">
+                            <i class="fa-solid fa-arrow-left"></i> Voltar
+                        </a>
+                    </div>
+                </nav>
+            </div>
         </header>
         
+        <!-- Conteúdo Principal -->
         <main>
-          <section id="form-section">
-            <h1>Agende Seu Horário</h1>
+            <div class="main-content">
+                <section id="form-section" class="form-card">
+                    <div class="form-header">
+                        <h2><i class="far fa-calendar-check"></i> Agende Seu Horário</h2>
+                        <p class="form-subtitle">Preencha os dados abaixo para agendar sua consulta</p>
+                    </div>
+                    
+                    <form [formGroup]="agendamentoForm" (ngSubmit)="onSubmit()" id="agendamentoForm">                       
+                        
+                        <div class="form-group">
+                            <label for="servico">Serviço:</label>
+                            <select id="servico" formControlName="servico" (change)="filtrarProfissionaisPorServico()" required>
+                                <option value="">Selecione um serviço</option>
+                                <option *ngFor="let servico of servicosDisponiveis" [value]="servico.value">
+                                    {{ servico.label }}
+                                </option>
+                            </select>
+                            <div *ngIf="agendamentoForm.get('servico')?.invalid && (agendamentoForm.get('servico')?.touched || submitted)" 
+                                 class="error-message">
+                                Por favor, selecione um serviço
+                            </div>
+                        </div>
+                                
+                        <div class="form-group">
+                            <label for="profissional">Profissional:</label>
+                            <select id="profissional" formControlName="profissional" (change)="mostrarDetalhesProfissional()" [disabled]="!agendamentoForm.get('servico')?.value" required>
+                                <option value="">Selecione um profissional</option>
+                                <option *ngFor="let prof of profissionaisFiltrados" [value]="prof.id">
+                                    {{ prof.nome }} - {{ prof.especialidade }}
+                                </option>
+                            </select>
+                            <div *ngIf="agendamentoForm.get('profissional')?.invalid && (agendamentoForm.get('profissional')?.touched || submitted)" 
+                                 class="error-message">
+                                Por favor, selecione um profissional
+                            </div>
+                        </div>
+                                   
+                        <div *ngIf="profissionalSelecionado" class="professional-details">
+                            <div class="professional-photo">
+                                <img [src]="profissionalSelecionado.foto || 'assets/profissional-default.jpg'" alt="Foto do profissional">
+                            </div>
+                            <div class="professional-info">
+                                <h3>{{ profissionalSelecionado.nome }}</h3>
+                                <p><strong>Especialidade:</strong> {{ profissionalSelecionado.especialidade }}</p>
+                                <p><strong>Formação:</strong> {{ profissionalSelecionado.formacao }}</p>
+                                <p><strong>Experiência:</strong> {{ profissionalSelecionado.experiencia }}</p>
+                                <p class="professional-bio">{{ profissionalSelecionado.bio }}</p>
+                            </div>
+                        </div>
+                                    
+                        <div class="form-group">
+                            <label for="data">Data:</label>
+                            <input type="date" id="data" formControlName="data" [min]="minDate" [max]="maxDate" required>
+                            <div *ngIf="agendamentoForm.get('data')?.invalid && (agendamentoForm.get('data')?.touched || submitted)" 
+                                 class="error-message">
+                                <span *ngIf="agendamentoForm.get('data')?.errors?.['required']">Data é obrigatória</span>
+                                <span *ngIf="agendamentoForm.get('data')?.errors?.['minDate']">Não é possível agendar para datas passadas</span>
+                                <span *ngIf="agendamentoForm.get('data')?.errors?.['maxDate']">Não é possível agendar com mais de 30 dias de antecedência</span>
+                                <span *ngIf="agendamentoForm.get('data')?.errors?.['weekend']">Não atendemos aos finais de semana</span>
+                            </div>
+                        </div>
             
-            <form [formGroup]="agendamentoForm" (ngSubmit)="onSubmit()" id="agendamentoForm">
-              <!-- Serviço -->
-              <div class="form-group">
-                <label for="servico">Serviço:</label>
-                <select id="servico" formControlName="servico" (change)="filtrarProfissionaisPorServico()" required>
-                  <option value="">Selecione um serviço</option>
-                  <option *ngFor="let servico of servicosDisponiveis" [value]="servico.value">
-                    {{ servico.label }}
-                  </option>
-                </select>
-                <div *ngIf="agendamentoForm.get('servico')?.invalid && (agendamentoForm.get('servico')?.touched || submitted)" 
-                     class="error-message">
-                  Por favor, selecione um serviço
-                </div>
-              </div>
-      
-              <!-- Profissional -->
-              <div class="form-group">
-                <label for="profissional">Profissional:</label>
-                <select id="profissional" formControlName="profissional" (change)="mostrarDetalhesProfissional()" [disabled]="!agendamentoForm.get('servico')?.value" required>
-                  <option value="">Selecione um profissional</option>
-                  <option *ngFor="let prof of profissionaisFiltrados" [value]="prof.id">
-                    {{ prof.nome }} - {{ prof.especialidade }}
-                  </option>
-                </select>
-                <div *ngIf="agendamentoForm.get('profissional')?.invalid && (agendamentoForm.get('profissional')?.touched || submitted)" 
-                     class="error-message">
-                  Por favor, selecione um profissional
-                </div>
-              </div>
-      
-              <!-- Detalhes do Profissional -->
-              <div *ngIf="profissionalSelecionado" class="professional-details">
-                <div class="professional-photo">
-                  <img [src]="profissionalSelecionado.foto || 'assets/profissional-default.jpg'" alt="Foto do profissional">
-                </div>
-                <div class="professional-info">
-                  <h3>{{ profissionalSelecionado.nome }}</h3>
-                  <p><strong>Especialidade:</strong> {{ profissionalSelecionado.especialidade }}</p>
-                  <p><strong>Formação:</strong> {{ profissionalSelecionado.formacao }}</p>
-                  <p><strong>Experiência:</strong> {{ profissionalSelecionado.experiencia }}</p>
-                  <p class="professional-bio">{{ profissionalSelecionado.bio }}</p>
-                </div>
-              </div>
-      
-              <!-- Data e Hora -->
-              <div class="form-group">
-                <label for="data">Data:</label>
-                <input type="date" id="data" formControlName="data" [min]="minDate" [max]="maxDate" required>
-                <div *ngIf="agendamentoForm.get('data')?.invalid && (agendamentoForm.get('data')?.touched || submitted)" 
-                     class="error-message">
-                  <span *ngIf="agendamentoForm.get('data')?.errors?.['required']">Data é obrigatória</span>
-                  <span *ngIf="agendamentoForm.get('data')?.errors?.['minDate']">Não é possível agendar para datas passadas</span>
-                  <span *ngIf="agendamentoForm.get('data')?.errors?.['maxDate']">Não é possível agendar com mais de 30 dias de antecedência</span>
-                  <span *ngIf="agendamentoForm.get('data')?.errors?.['weekend']">Não atendemos aos finais de semana</span>
-                </div>
-              </div>
-      
-              <div class="form-group">
-                <label for="hora">Horário:</label>
-                <input type="time" id="hora" formControlName="hora" min="08:00" max="18:00" step="1800" required>
-                <div *ngIf="agendamentoForm.get('hora')?.invalid && (agendamentoForm.get('hora')?.touched || submitted)" 
-                     class="error-message">
-                  <span *ngIf="agendamentoForm.get('hora')?.errors?.['required']">Horário é obrigatório</span>
-                  <span *ngIf="agendamentoForm.get('hora')?.errors?.['minTime'] || agendamentoForm.get('hora')?.errors?.['maxTime']">
-                    Horário deve ser entre 08:00 e 18:00
-                  </span>
-                </div>
-              </div>
-      
-              <!-- Informações Pessoais -->
-              <div class="form-group">
-                <label for="nome">Nome Completo:</label>
-                <input type="text" id="nome" formControlName="nome" required>
-                <div *ngIf="agendamentoForm.get('nome')?.invalid && (agendamentoForm.get('nome')?.touched || submitted)" 
-                     class="error-message">
-                  <span *ngIf="agendamentoForm.get('nome')?.errors?.['required']">Nome é obrigatório</span>
-                  <span *ngIf="agendamentoForm.get('nome')?.errors?.['minlength']">
-                    Nome deve ter pelo menos 3 caracteres
-                  </span>
-                </div>
-              </div>
-      
-              <div class="form-group">
-                <label for="telefone">Telefone:</label>
-                <input type="tel" id="telefone" formControlName="telefone" (input)="formatarTelefone($event)" required>
-                <div *ngIf="agendamentoForm.get('telefone')?.invalid && (agendamentoForm.get('telefone')?.touched || submitted)" 
-                     class="error-message">
-                  <span *ngIf="agendamentoForm.get('telefone')?.errors?.['required']">Telefone é obrigatório</span>
-                  <span *ngIf="agendamentoForm.get('telefone')?.errors?.['pattern']">
-                    Informe um telefone válido (DDD) 9XXXX-XXXX
-                  </span>
-                </div>
-              </div>
-      
-              <div class="form-group">
-                <label for="email">E-mail (opcional):</label>
-                <input type="email" id="email" formControlName="email">
-                <div *ngIf="agendamentoForm.get('email')?.invalid && (agendamentoForm.get('email')?.touched || submitted)" 
-                     class="error-message">
-                  <span *ngIf="agendamentoForm.get('email')?.errors?.['email']">
-                    Por favor, insira um e-mail válido
-                  </span>
-                </div>
-              </div>
-      
-              <div class="form-group">
-                <label for="observacoes">Observações (opcional):</label>
-                <textarea id="observacoes" formControlName="observacoes" rows="3"></textarea>
-              </div>
-      
-              <!-- Lembretes -->
-              <div class="form-group reminder-options">
-                <label>Receber lembrete por:</label>
-                <div class="reminder-checkboxes">
-                  <label>
-                    <input type="checkbox" formControlName="lembreteSMS"> SMS
-                  </label>
-                  <label>
-                    <input type="checkbox" formControlName="lembreteWhatsApp"> WhatsApp
-                  </label>
-                  <label>
-                    <input type="checkbox" formControlName="lembreteEmail"> E-mail
-                  </label>
-                </div>
-              </div>
-      
-              <button type="submit" [disabled]="submitting">
-                <span *ngIf="!submitting">Confirmar Agendamento</span>
-                <span *ngIf="submitting" class="loading-spinner"></span>
-              </button>
-      
-              <div *ngIf="successMessage" class="success-message">
-                {{ successMessage }}
-              </div>
-      
-              <div *ngIf="errorMessage" class="error-message">
-                {{ errorMessage }}
-              </div>
-            </form>
-          </section>
+                        <div class="form-group">
+                            <label for="hora">Horário:</label>
+                            <input type="time" id="hora" formControlName="hora" min="08:00" max="18:00" step="1800" required>
+                            <div *ngIf="agendamentoForm.get('hora')?.invalid && (agendamentoForm.get('hora')?.touched || submitted)" 
+                                 class="error-message">
+                                <span *ngIf="agendamentoForm.get('hora')?.errors?.['required']">Horário é obrigatório</span>
+                                <span *ngIf="agendamentoForm.get('hora')?.errors?.['minTime'] || agendamentoForm.get('hora')?.errors?.['maxTime']">
+                                    Horário deve ser entre 08:00 e 18:00
+                                </span>
+                            </div>
+                        </div>
+            
+                        <!-- Informações Pessoais -->
+                        <div class="form-group">
+                            <label for="nome">Nome Completo:</label>
+                            <input type="text" id="nome" formControlName="nome" required>
+                            <div *ngIf="agendamentoForm.get('nome')?.invalid && (agendamentoForm.get('nome')?.touched || submitted)" 
+                                 class="error-message">
+                                <span *ngIf="agendamentoForm.get('nome')?.errors?.['required']">Nome é obrigatório</span>
+                                <span *ngIf="agendamentoForm.get('nome')?.errors?.['minlength']">
+                                    Nome deve ter pelo menos 3 caracteres
+                                </span>
+                            </div>
+                        </div>
+            
+                        <div class="form-group">
+                            <label for="telefone">Telefone:</label>
+                            <input type="tel" id="telefone" formControlName="telefone" (input)="formatarTelefone($event)" required>
+                            <div *ngIf="agendamentoForm.get('telefone')?.invalid && (agendamentoForm.get('telefone')?.touched || submitted)" 
+                                 class="error-message">
+                                <span *ngIf="agendamentoForm.get('telefone')?.errors?.['required']">Telefone é obrigatório</span>
+                                <span *ngIf="agendamentoForm.get('telefone')?.errors?.['pattern']">
+                                    Informe um telefone válido (DDD) 9XXXX-XXXX
+                                </span>
+                            </div>
+                        </div>
+            
+                        <div class="form-group">
+                            <label for="email">E-mail (opcional):</label>
+                            <input type="email" id="email" formControlName="email">
+                            <div *ngIf="agendamentoForm.get('email')?.invalid && (agendamentoForm.get('email')?.touched || submitted)" 
+                                 class="error-message">
+                                <span *ngIf="agendamentoForm.get('email')?.errors?.['email']">
+                                    Por favor, insira um e-mail válido
+                                </span>
+                            </div>
+                        </div>
+            
+                        <div class="form-group">
+                            <label for="observacoes">Observações (opcional):</label>
+                            <textarea id="observacoes" formControlName="observacoes" rows="3"></textarea>
+                        </div>
+            
+                        <!-- Lembretes -->
+                        <div class="form-group reminder-options">
+                            <label>Receber lembrete por:</label>
+                            <div class="reminder-checkboxes">
+                                <label>
+                                    <input type="checkbox" formControlName="lembreteSMS"> SMS
+                                </label>
+                                <label>
+                                    <input type="checkbox" formControlName="lembreteWhatsApp"> WhatsApp
+                                </label>
+                                <label>
+                                    <input type="checkbox" formControlName="lembreteEmail"> E-mail
+                                </label>
+                            </div>
+                        </div>
+            
+                        <button type="submit" class="submit-btn" [disabled]="submitting">
+                            <span *ngIf="!submitting"><i class="fas fa-calendar-plus"></i> Confirmar Agendamento</span>
+                            <span *ngIf="submitting" class="loading-spinner"></span>
+                        </button>
+            
+                        <div *ngIf="successMessage" class="success-message">
+                            <i class="fas fa-check-circle"></i> {{ successMessage }}
+                        </div>
+            
+                        <div *ngIf="errorMessage" class="error-message">
+                            <i class="fas fa-exclamation-circle"></i> {{ errorMessage }}
+                        </div>
+                    </form>
+                </section>
+            </div>
         </main>
-      
-        <!-- Modal de Confirmação -->
-        <div *ngIf="showConfirmationModal" class="modal-overlay">
-          <div class="confirmation-modal">
-            <h2>Confirme seu Agendamento</h2>
-            
-            <div class="confirmation-details">
-              <p><strong>Serviço:</strong> {{ getServicoLabel(agendamentoForm.value.servico) }}</p>
-              <p><strong>Profissional:</strong> {{ profissionalSelecionado?.nome }}</p>
-              <p><strong>Data:</strong> {{ formatarData(agendamentoForm.value.data) }}</p>
-              <p><strong>Horário:</strong> {{ agendamentoForm.value.hora }}</p>
-              <p><strong>Paciente:</strong> {{ agendamentoForm.value.nome }}</p>
-              <p><strong>Telefone:</strong> {{ agendamentoForm.value.telefone }}</p>
               
-              <div *ngIf="agendamentoForm.value.lembreteSMS || agendamentoForm.value.lembreteWhatsApp || agendamentoForm.value.lembreteEmail" class="reminder-confirmation">
-                <p><strong>Lembretes:</strong></p>
-                <ul>
-                  <li *ngIf="agendamentoForm.value.lembreteSMS">SMS</li>
-                  <li *ngIf="agendamentoForm.value.lembreteWhatsApp">WhatsApp</li>
-                  <li *ngIf="agendamentoForm.value.lembreteEmail">E-mail</li>
-                </ul>
-              </div>
+        <footer class="main-footer">
+            <div class="footer-content">
+                <div class="footer-section about">
+                    <div class="footer-logo">
+                        <i class="fas fa-tooth"></i>
+                        <span>OdontoHub</span>
+                    </div>
+                    <p class="footer-about">Transformando sorrisos, transformando vidas. Nossa missão é proporcionar saúde bucal com excelência e conforto.</p>
+                    <div class="socials">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section links">
+                    <h3>Links Úteis</h3>
+                    <ul>
+                        <li><a href="#">Sobre Nós</a></li>
+                        <li><a href="#">Nossos Serviços</a></li>
+                        <li><a href="#">Equipe Profissional</a></li>
+                        <li><a href="#">Política de Privacidade</a></li>
+                        <li><a href="#">Termos de Uso</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section contact">
+                    <h3>Contato</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Av. Araucárias, Águas Claras, 346</p>
+                    <p><i class="fas fa-phone"></i> (61) 97654-3210</p>
+                    <p><i class="fas fa-envelope"></i> contato&#64;odontohub.com</p>
+                    <p><i class="fas fa-clock"></i> Seg-Sex: 8h-18h | Finais de semana: Fechado</p>
+                </div>
             </div>
-      
-            <div class="modal-actions">
-              <button type="button" class="btn-cancel" (click)="cancelarAgendamento()">Corrigir Dados</button>
-              <button type="button" class="btn-confirm" (click)="confirmarAgendamento()">Confirmar Agendamento</button>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 OdontoHub. Todos os direitos reservados.</p>
             </div>
-          </div>
+        </footer>
+            
+        <div *ngIf="showConfirmationModal" class="modal-overlay">
+            <div class="confirmation-modal">
+                <h2>Confirme seu Agendamento</h2>
+                
+                <div class="confirmation-details">
+                    <p><strong>Serviço:</strong> {{ getServicoLabel(agendamentoForm.value.servico) }}</p>
+                    <p><strong>Profissional:</strong> {{ profissionalSelecionado?.nome }}</p>
+                    <p><strong>Data:</strong> {{ formatarData(agendamentoForm.value.data) }}</p>
+                    <p><strong>Horário:</strong> {{ agendamentoForm.value.hora }}</p>
+                    <p><strong>Paciente:</strong> {{ agendamentoForm.value.nome }}</p>
+                    <p><strong>Telefone:</strong> {{ agendamentoForm.value.telefone }}</p>
+                    
+                    <div *ngIf="agendamentoForm.value.lembreteSMS || agendamentoForm.value.lembreteWhatsApp || agendamentoForm.value.lembreteEmail" class="reminder-confirmation">
+                        <p><strong>Lembretes:</strong></p>
+                        <ul>
+                            <li *ngIf="agendamentoForm.value.lembreteSMS">SMS</li>
+                            <li *ngIf="agendamentoForm.value.lembreteWhatsApp">WhatsApp</li>
+                            <li *ngIf="agendamentoForm.value.lembreteEmail">E-mail</li>
+                        </ul>
+                    </div>
+                </div>
+        
+                <div class="modal-actions">
+                    <button type="button" class="btn-cancel" (click)="cancelarAgendamento()">Corrigir Dados</button>
+                    <button type="button" class="btn-confirm" (click)="confirmarAgendamento()">Confirmar Agendamento</button>
+                </div>
+            </div>
         </div>
-      </div>
+    </div>
+</body>
+</html>

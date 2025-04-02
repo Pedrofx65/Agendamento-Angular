@@ -1,365 +1,599 @@
 body {
-    font-family: 'Arial', sans-serif;
-    color: #333;
-    margin: 0;
-    padding: 0;
-    position: relative;
-    overflow-y: auto; 
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  overflow-x: hidden;
+  background-color: #f9f9f9;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  position: relative;
 }
 
 body::before {
-    content: '';
-    position: fixed; 
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('https://img.freepik.com/fotos-gratis/escritorio-de-estomatologia-com-equipamentos-modernos-e-enfermeira-vestindo-uniforme-azul-trabalhando-no-computador_482257-12534.jpg?t=st=1742687942~exp=1742691542~hmac=e67440372def889d986e62034c224fe827840844b17ebceeec2edcf750e14da4&w=996'); /* Substitua pelo caminho da sua imagem */
-    background-size: cover;
-    background-position: center;
-    opacity: 0.5; 
-    z-index: -1; 
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.3;
+  z-index: -1;
+  filter: blur(2px);
 }
 
-p {
-    color: #fff;
-    font-size: 25px;
-    margin: 0;
+.scheduling-container {
+  position: relative;
+  z-index: 1;
 }
 
-span {
-    color:rgb(85, 211, 92);
+/* Header Estilizado */
+.main-header {
+  background: linear-gradient(135deg, #00453A 0%, #002c45ef 100%);
+  color: white;
+  padding: 1rem 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 10;
 }
 
-header {
-    background-color: #002c45de;
-    color: white;
-    padding: 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    position: relative;
-    z-index: 1;
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
-main {
-    margin: 2rem auto;
-    padding: 2rem;
-    background: white;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-    border-radius: 8px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
-    z-index: 1;
+.logo-container {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
-main:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  transition: all 0.3s ease;
 }
 
-h1 {
-    margin-bottom: 1.5rem;
-    font-size: 2rem;
-    color: #002c45ef;
-    text-align: center;
+.logo:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
 }
 
+.dental-icon {
+  font-size: 2rem;
+  margin-right: 0.8rem;
+  color: #4fc3f7;
+}
+
+.logo h1 {
+  font-size: 1.8rem;
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.logo span {
+  color: #4fc3f7;
+}
+
+.tagline {
+  font-size: 0.9rem;
+  margin-left: 3.5rem;
+  margin-top: -0.5rem;
+  font-weight: 300;
+  opacity: 0.9;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+}
+
+.btn-agendados {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.7rem 1.5rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+}
+
+.btn-agendados i {
+  margin-right: 0.5rem;
+}
+
+.btn-agendados:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Main Content */
+.main-content {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.form-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 700px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 2rem;
+}
+
+.form-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+}
+
+.form-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.form-header h2 {
+  font-size: 2rem;
+  color: #00453A;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-header h2 i {
+  margin-right: 0.8rem;
+  color: #4fc3f7;
+}
+
+.form-subtitle {
+  color: #666;
+  font-size: 1rem;
+  margin-top: 0;
+}
+
+/* Form Elements (mantendo os estilos originais com pequenos ajustes) */
 form .form-group {
-    margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: bold;
-    color: #002c45ef;
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #00453A;
+  font-size: 0.95rem;
 }
 
 input,
 select,
-button {
-    width: 100%;
-    padding: 1rem;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    font-size: 1rem;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+textarea {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  font-family: 'Poppins', sans-serif;
 }
 
 input:focus,
-select:focus {
-    border-color: #002c45ef;
-    box-shadow: 0 0 5px rgba(0, 44, 69, 0.5);
-    outline: none;
+select:focus,
+textarea:focus {
+  border-color: #4fc3f7;
+  box-shadow: 0 0 0 3px rgba(79, 195, 247, 0.2);
+  outline: none;
 }
 
-button {
-    background-color: #00453A;
-    color: white;
-    border: none;
-    cursor: pointer;
-    height: 3rem;
-    font-size: 1rem;
-    transition: background-color 0.3s ease;
+.submit-btn {
+  background: linear-gradient(135deg, #00453A 0%, #002c45ef 100%);
+  color: white;
+  border: none;
+  padding: 1rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-button:hover {
-    background-color: #002c45ef;
+.submit-btn i {
+  margin-right: 0.5rem;
 }
 
-#agendamentosList {
-    list-style: none;
-    padding: 0;
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 69, 58, 0.3);
 }
 
-#agendamentosList li {
-    padding: 0.5rem;
-    border-bottom: 1px solid #ccc;
-    margin-bottom: 0.5rem;
+.submit-btn:disabled {
+  background: #cccccc;
+  transform: none;
+  box-shadow: none;
+  cursor: not-allowed;
 }
 
-.user-options a {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    background-color: white;
-    color: black;
-    text-decoration: none;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    font-weight: bold;
-    transition: background-color 0.3s ease, color 0.3s ease;
+/* Professional Details */
+.professional-details {
+  display: flex;
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+  padding: 1.5rem;
+  background-color: #f8fafc;
+  border-radius: 8px;
+  border-left: 4px solid #4fc3f7;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-.user-options a:hover {
-    background-color: #002c45ef;
-    color: white;
+.professional-photo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.logo a {
-    text-decoration: none;
+.professional-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.logo a:hover {
-    opacity: 0.8;
+.professional-info h3 {
+  color: #00453A;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
 }
 
-.scheduling-container {
-    position: relative;
-    min-height: 100vh;
+.professional-info p {
+  margin: 0.3rem 0;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.professional-bio {
+  font-style: italic;
+  color: #666;
+  margin-top: 0.8rem !important;
+  font-size: 0.85rem;
+}
+
+/* Messages */
+.error-message {
+  color: #d32f2f;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.error-message i {
+  margin-right: 0.3rem;
+}
+
+.success-message {
+  color: #388e3c;
+  font-size: 1rem;
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background-color: #e8f5e9;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.success-message i {
+  margin-right: 0.5rem;
+}
+
+/* Footer */
+.main-footer {
+  background: linear-gradient(135deg, #002c45ef 0%, #00453A 100%);
+  color: white;
+  padding: 3rem 0 0;
+  margin-top: 3rem;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.footer-section {
+  margin-bottom: 2rem;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.footer-logo i {
+  font-size: 1.8rem;
+  margin-right: 0.8rem;
+  color: #4fc3f7;
+}
+
+.footer-logo span {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.footer-about {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  opacity: 0.9;
+  margin-bottom: 1.5rem;
+}
+
+.socials {
+  display: flex;
+  gap: 1rem;
+}
+
+.socials a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.socials a:hover {
+  background-color: #4fc3f7;
+  transform: translateY(-3px);
+}
+
+.footer-section h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.footer-section h3::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 50px;
+  height: 2px;
+  background-color: #4fc3f7;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 0.8rem;
+}
+
+.footer-section ul li a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.footer-section ul li a:hover {
+  color: #4fc3f7;
+  padding-left: 5px;
+}
+
+.contact p {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.8rem;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.contact i {
+  margin-right: 0.8rem;
+  color: #4fc3f7;
+  width: 20px;
+  text-align: center;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding: 1.5rem 0;
+  background-color: rgba(0, 0, 0, 0.1);
+  margin-top: 2rem;
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+/* Modal (mantido igual) */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.confirmation-modal {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.confirmation-modal h2 {
+  margin-top: 0;
+  color: #002c45ef;
+  text-align: center;
+}
+
+.confirmation-details {
+  margin: 1.5rem 0;
+  line-height: 1.6;
+}
+
+.confirmation-details p {
+  margin: 0.5rem 0;
+  color: #333;
+}
+
+.reminder-confirmation {
+  margin-top: 1rem;
+  padding-left: 1rem;
+}
+
+.reminder-confirmation ul {
+  margin: 0.5rem 0;
+  padding-left: 1.5rem;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+}
+
+.btn-cancel, .btn-confirm {
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.btn-cancel {
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+.btn-cancel:hover {
+  background-color: #e0e0e0;
+}
+
+.btn-confirm {
+  background-color: #00453A;
+  color: white;
+}
+
+.btn-confirm:hover {
+  background-color: #002c45ef;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .header-content {
+      flex-direction: column;
+      text-align: center;
+      padding: 1rem;
   }
   
-  .error-message {
-    color: #d32f2f;
-    font-size: 0.8rem;
-    margin-top: 0.25rem;
+  .logo-container {
+      justify-content: center;
+      margin-bottom: 1rem;
   }
   
-  .success-message {
-    color: #388e3c;
-    font-size: 1rem;
-    margin-top: 1rem;
-    text-align: center;
-    padding: 0.5rem;
-    background-color: #e8f5e9;
-    border-radius: 4px;
+  .tagline {
+      margin-left: 0;
+      margin-top: 0.5rem;
+      width: 100%;
   }
   
-  .loading-spinner {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    border: 3px solid rgba(255, 255, 255, 0.3);
-    border-radius: 50%;
-    border-top-color: #fff;
-    animation: spin 1s ease-in-out infinite;
-  }
-  
-  @keyframes spin {
-    to { transform: rotate(360deg); }
-  }
-  
-  button:disabled {
-    background-color: #cccccc;
-    cursor: not-allowed;
-  }
-  
-  textarea {
-    width: 100%;
-    padding: 0.75rem;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    font-size: 1rem;
-    font-family: 'Arial', sans-serif;
-    resize: vertical;
-    min-height: 80px;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  .navigation {
+      justify-content: center;
   }
   
   .professional-details {
-    display: flex;
-    gap: 1rem;
-    margin: 1rem 0;
-    padding: 1rem;
-    background-color: #f5f5f5;
-    border-radius: 8px;
-    border-left: 4px solid #00453A;
-  }
-  
-  .professional-photo {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    overflow: hidden;
-  }
-  
-  .professional-photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  .professional-info {
-    flex: 1;
-  }
-  
-  .professional-info h3 {
-    margin: 0 0 0.5rem 0;
-    color: #002c45ef;
-  }
-  
-  .professional-info p {
-    margin: 0.25rem 0;
-    color: #333;
-    font-size: 0.9rem;
-  }
-  
-  .professional-bio {
-    font-style: italic;
-    margin-top: 0.5rem !important;
-  }
-  
-  .reminder-options {
-    margin: 1.5rem 0;
-  }
-  
-  .reminder-checkboxes {
-    display: flex;
-    gap: 1.5rem;
-    margin-top: 0.5rem;
-  }
-  
-  .reminder-checkboxes label {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-weight: normal;
-    cursor: pointer;
-  }
-  
-  .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-  }
-  
-  .confirmation-modal {
-    background: white;
-    padding: 2rem;
-    border-radius: 8px;
-    max-width: 500px;
-    width: 90%;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-  }
-  
-  .confirmation-modal h2 {
-    margin-top: 0;
-    color: #002c45ef;
-    text-align: center;
-  }
-  
-  .confirmation-details {
-    margin: 1.5rem 0;
-    line-height: 1.6;
-  }
-  
-  .confirmation-details p {
-    margin: 0.5rem 0;
-    color: #333;
-  }
-  
-  .reminder-confirmation {
-    margin-top: 1rem;
-    padding-left: 1rem;
-  }
-  
-  .reminder-confirmation ul {
-    margin: 0.5rem 0;
-    padding-left: 1.5rem;
-  }
-  
-  .modal-actions {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 1.5rem;
-  }
-  
-  .btn-cancel, .btn-confirm {
-    padding: 0.75rem 1.5rem;
-    border-radius: 4px;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
-    transition: all 0.3s ease;
-  }
-  
-  .btn-cancel {
-    background-color: #f5f5f5;
-    color: #333;
-  }
-  
-  .btn-cancel:hover {
-    background-color: #e0e0e0;
-  }
-  
-  .btn-confirm {
-    background-color: #00453A;
-    color: white;
-  }
-  
-  .btn-confirm:hover {
-    background-color: #002c45ef;
-  }
-  
-  @media (max-width: 600px) {
-    .professional-details {
       flex-direction: column;
       align-items: center;
       text-align: center;
-    }
-    
-    .reminder-checkboxes {
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-    
-    .modal-actions {
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-    
-    .btn-cancel, .btn-confirm {
-      width: 100%;
-    }
   }
+  
+  .professional-photo {
+      margin-bottom: 1rem;
+  }
+  
+  .footer-content {
+      grid-template-columns: 1fr;
+      padding: 0 1.5rem;
+  }
+  
+  .footer-section {
+      text-align: center;
+  }
+  
+  .footer-section h3::after {
+      left: 50%;
+      transform: translateX(-50%);
+  }
+  
+  .socials {
+      justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-card {
+      padding: 1.5rem;
+  }
+  
+  .form-header h2 {
+      font-size: 1.5rem;
+  }
+  
+  .modal-actions {
+      flex-direction: column;
+      gap: 0.5rem;
+  }
+  
+  .btn-cancel, .btn-confirm {
+      width: 100%;
+  }
+}
