@@ -44,13 +44,13 @@ export class TelaAgendamentoComponent implements OnInit {
   profissionais: Profissional[] = [
     {
       id: 1,
-      nome: 'Dra. Ana Silva',
+      nome: 'Dra. Fernanda Lima',
       especialidade: 'Clareamento Dental',
       formacao: 'Mestre em Odontologia Estética - USP',
       experiencia: '10 anos de experiência',
       bio: 'Especializada em clareamentos e estética dental, com mais de 500 procedimentos realizados.',
       servicos: ['clareamento', 'avaliacao'],
-      foto: 'https://img.freepik.com/fotos-gratis/jovem-medico-sorridente-usando-estetoscopio-e-vestido-de-medico-cruzando-as-maos-na-parede-branca_141793-27091.jpg?t=st=1742862620~exp=1742866220~hmac=d3f80af79c8fd3031e0786c98604fe67cb0ae30394cb53566b0f436effce237d&w=996'
+      foto: 'assets/medica-fernanda.jpg'
     },
     {
       id: 2,
@@ -60,7 +60,7 @@ export class TelaAgendamentoComponent implements OnInit {
       experiencia: '8 anos de experiência',
       bio: 'Expert em tratamentos de canal e procedimentos endodônticos complexos.',
       servicos: ['canal', 'extracao', 'cirurgias'],
-      foto: 'https://img.freepik.com/fotos-premium/um-homem-de-roupa-azul-esta-em-uma-sala-com-uma-escova-de-dentes-na-mao_1319323-406.jpg?w=826'
+      foto: 'assets/carlos-mendes-endonto.jpg'
     },
     {
       id: 3,
