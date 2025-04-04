@@ -6,7 +6,6 @@
   color: #62A651;
 }
 
-/* Main */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -33,7 +32,6 @@ p{
   margin-bottom: 10px;
 }
 
-/* Logo */
 .logo h1{
   font-size: 47px;
   font-weight: 700 ;
@@ -45,7 +43,6 @@ p{
   color: #1c1c1c;
 }
 
-/* Navbar */
 .navbar {
   display: flex;
   background: rgb(248,246,207);
@@ -57,7 +54,8 @@ p{
   position: fixed;
   top: 0px;
   border-bottom: 1px solid #535353;
-  transition: 0.7s ;
+  transition: 0.7s;
+  z-index: 1000;
 }
 
 .navbar.top {
@@ -66,13 +64,15 @@ p{
   background: linear-gradient(45deg, rgba(248,246,207,1) 10%, rgba(248,246,207,0.58) 51%);
 }
 
-.navbar nav{
+.navbar nav {
   height: 100%;
 }
 
-.navbar ul{
+.navbar ul {
   display: flex;
   height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .navbar li {
@@ -80,38 +80,84 @@ p{
   height: 100%;
   width: 160px;
   position: relative;
+  list-style: none;
+  transition: all 0.3s ease;
 }
 
 .navbar li:hover {
-  background-color: rgb(223,213,145,0.92) ;
+  background-color: rgba(223, 213, 145, 0.92);
+}
+
+.navbar ul a {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  font-family: 'Alegreya Sans SC', sans-serif;
+  font-size: 18px;
+  color: #4B4B4B;
+  transition: all 0.3s ease;
+  padding-bottom: 5px;
 }
 
 .navbar ul a:hover {
-  color: rgb(85, 124, 87);
+  color: #62A651;
 }
 
-.navbar li::before{
+.navbar ul a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #62A651;
+  transition: width 0.3s ease;
+}
+
+.navbar ul a:hover::after {
+  width: 100%;
+}
+
+.navbar li::before {
   position: absolute;
   content: '';
   left: 0;
   top: 33%;
-  border-right:#8b8b8b solid 1px;
+  border-right: #8b8b8b solid 1px;
   width: 1px;
   height: 34%;
+  transition: all 0.3s ease;
 }
 
-.navbar li:last-child {
-  border: none;
+.navbar li:hover::before {
+  opacity: 0;
 }
 
-.navbar a {
-  font-family: 'Alegreya Sans SC', sans-serif;
-  font-size: 18px;
-  color: #62A651;
+.navbar li:first-child::before {
+  display: none;
 }
 
-.navbar.top a {
-  color: #4B4B4B;
+.navbar .logo h1, .navbar .logo h2 {
+  transition: all 0.3s ease;
+}
+
+.navbar .logo:hover h1, .navbar .logo:hover h2 {
+  transform: translateY(-2px);
+}
+
+.navbar li {
+  position: relative;
+  padding: 0; 
+}
+
+.navbar li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  padding: 24.5px 0 0 27px; 
+  box-sizing: border-box;
 }
 
 .home {
@@ -129,7 +175,6 @@ p{
   z-index: 11;
 }
 
-/* Contenido bienvenida */
 .home .bienvenida {
   display: flex;
   height: 100%;
@@ -234,7 +279,7 @@ p{
 .twitter-icon {
   width: 100%;
   height: 100%;
-  fill: #1DA1F2; /* Azul do Twitter/X */
+  fill: #1DA1F2; 
 }
 
 .testimonial-header {
