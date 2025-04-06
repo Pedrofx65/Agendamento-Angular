@@ -160,6 +160,62 @@ p{
   box-sizing: border-box;
 }
 
+.navbar li.has-submenu {
+  position: relative;
+}
+
+.navbar .submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 160px;
+  background-color: rgba(223, 213, 145, 0.92);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  border-top: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .submenu li {
+  padding: 0;
+  width: 100%;
+  height: auto;
+}
+
+.navbar .submenu a {
+  padding: 15px 20px;
+  display: block;
+  color: #4B4B4B;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.navbar .submenu a:hover {
+  background-color: rgba(200, 190, 120, 0.92);
+  color: #62A651;
+}
+
+.navbar li.has-submenu:hover .submenu {
+  display: block;
+}
+
+.navbar li.has-submenu::before {
+  position: absolute;
+  content: '';
+  left: 0;
+  top: 33%;
+  border-right: #8b8b8b solid 1px;
+  width: 1px;
+  height: 34%;
+  transition: all 0.3s ease;
+}
+
+.navbar li.has-submenu:hover::before {
+  opacity: 0;
+}
+
 .home {
   background: url('/assets/showcase.jpg') no-repeat center center/cover ;
   height: 100vh;
@@ -1448,6 +1504,179 @@ h1 {
     font-size: 0.9rem;
     padding: 12px 25px;
   }
+}
 
+.payments-section {
+  padding: 60px 20px;
+  background-color: #fff;
+  text-align: center;
+}
+
+.payments-content h2 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.payments-content h3 {
+  font-size: 1.5rem;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.payments-content p {
+  font-size: 1rem;
+  color: #555;
+  max-width: 800px;
+  margin: 0 auto 40px;
+}
+
+.payments-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.payment-methods, .insurance-plans {
+  margin-bottom: 90px;
+}
+
+.payment-methods h4, .insurance-plans h4 {
+  font-size: 1.8rem;
+  color: #2c3e50;
+  margin-bottom: 50px;
+  position: relative;
+  display: inline-block;
+}
+
+.payment-methods h4:after, .insurance-plans h4:after {
+  content: '';
+  position: absolute;
+  width: 50%;
+  height: 3px;
+  background: #3498db;
+  bottom: -10px;
+  left: 25%;
+}
+
+.payment-icons, .insurance-logos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 30px;
+  justify-items: center;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.payment-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.payment-icon:hover {
+  transform: scale(1.1);
+}
+
+.payment-icon img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 10px;
+  object-fit: contain;
+}
+
+.payment-icon span {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.insurance-logo {
+  padding: 15px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+
+.insurance-logo:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+.insurance-logo img {
+  max-width: 100%;
+  max-height: 70px;
+  object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  .payment-icons, .insurance-logos {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
   
+  .payment-icon img {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .insurance-logo {
+    height: 80px;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .payment-icons, .insurance-logos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.insurance-logo {
+  padding: 15px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  min-height: 150px;
+}
+
+.insurance-logo img {
+  max-width: 100%;
+  max-height: 70px;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+
+.insurance-logo span {
+  font-size: 0.9rem;
+  color: #555;
+  text-align: center;
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .insurance-logo {
+    min-height: 120px;
+    padding: 10px;
+  }
+  
+  .insurance-logo img {
+    max-height: 50px;
+    margin-bottom: 10px;
+  }
+  
+  .insurance-logo span {
+    font-size: 0.8rem;
+  }
 }
