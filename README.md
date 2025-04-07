@@ -1,5 +1,5 @@
 Clínica Odontológica - Sistema Web            
-Este é um sistema web desenvolvido para a gestão de uma clínica odontológica, permitindo o gerenciamento de pacientes, agendamentos, prontuários e demais processos administrativos.
+Este é um sistema web desenvolvido para a gestão de uma clínica odontológica, permitindo marcar e gerenciar os agendamentos.
 
 🚀 Tecnologias Utilizadas
 Angular 19: Framework front-end para desenvolvimento da interface do usuário.
