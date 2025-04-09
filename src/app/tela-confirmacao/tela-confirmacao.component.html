@@ -40,13 +40,13 @@
                       
                       <div class="card-content">
                           <div class="servico-info">
-                              <div class="servico-icon">
-                                  <i [class]="getServicoIcon(agendamento.servico)"></i>
-                              </div>
-                              <div>
-                                  <h3>{{ getServicoLabel(agendamento.servico) }}</h3>
-                                  <p class="profissional-name">{{ agendamento.profissional }}</p>
-                              </div>
+                            <div class="servico-icon">
+                                <i [class]="getServicoIcon(agendamento.servico)"></i>
+                            </div>
+                            <div>
+                                <h3>{{ getServicoLabel(agendamento.servico) }}</h3>
+                                <p class="profissional-name">{{ agendamento.profissional?.nome || agendamento.profissional }}</p>
+                            </div>
                           </div>
                           
                           <div class="agendamento-details">
