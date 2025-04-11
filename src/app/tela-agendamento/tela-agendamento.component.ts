@@ -50,7 +50,7 @@ export class TelaAgendamentoComponent implements OnInit {
       experiencia: '10 anos de experiência',
       bio: 'Especializada em clareamentos e estética dental, com mais de 500 procedimentos realizados.',
       servicos: ['clareamento', 'avaliacao'],
-      foto: 'assets/medica-fernanda.jpg'
+      foto: 'assets/img_dentistas/fernanda.jpg'
     },
     {
       id: 2,
@@ -60,7 +60,7 @@ export class TelaAgendamentoComponent implements OnInit {
       experiencia: '8 anos de experiência',
       bio: 'Expert em tratamentos de canal e procedimentos endodônticos complexos.',
       servicos: ['canal', 'extracao', 'cirurgias'],
-      foto: 'assets/carlos-mendes-endonto.jpg'
+      foto: 'assets/img_dentistas/carlos.jpg'
     },
     {
       id: 3,
@@ -70,7 +70,7 @@ export class TelaAgendamentoComponent implements OnInit {
       experiencia: '6 anos de experiência',
       bio: 'Dedicada ao tratamento de cáries e restaurações estéticas de alta qualidade.',
       servicos: ['carie', 'avaliacao'],
-      foto: 'https://website.cfo.org.br/wp-content/uploads/2018/03/dentista.jpg'
+      foto: 'assets/img_dentistas/maria.jpg'
     }
   ];
 
