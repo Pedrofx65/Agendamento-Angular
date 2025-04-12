@@ -32,20 +32,20 @@ p{
   margin-bottom: 10px;
 }
 
-.logo h1{
+.logo h1 {
   font-size: 47px;
-  font-weight: 700 ;
+  font-weight: 700;
 }
 
-.logo h2{
+.logo h2 {
   font-size: 14px;
-  font-weight: 700 ;
+  font-weight: 700;
   color: #1c1c1c;
 }
 
 .navbar {
   display: flex;
-  background: rgb(248,246,207);
+  background: rgb(248, 246, 207);
   align-items: center;
   justify-content: space-between;
   height: 83px;
@@ -60,8 +60,8 @@ p{
 
 .navbar.top {
   border: none;
-  background: rgb(248,246,207);
-  background: linear-gradient(45deg, rgba(248,246,207,1) 10%, rgba(248,246,207,0.58) 51%);
+  background: rgb(248, 246, 207);
+  background: linear-gradient(45deg, rgba(248, 246, 207, 1) 10%, rgba(248, 246, 207, 0.58) 51%);
 }
 
 .navbar nav {
@@ -137,17 +137,19 @@ p{
   display: none;
 }
 
-.navbar .logo h1, .navbar .logo h2 {
+.navbar .logo h1,
+.navbar .logo h2 {
   transition: all 0.3s ease;
 }
 
-.navbar .logo:hover h1, .navbar .logo:hover h2 {
+.navbar .logo:hover h1,
+.navbar .logo:hover h2 {
   transform: translateY(-2px);
 }
 
 .navbar li {
   position: relative;
-  padding: 0; 
+  padding: 0;
 }
 
 .navbar li a {
@@ -156,7 +158,7 @@ p{
   justify-content: center;
   height: 100%;
   width: 100%;
-  padding: 24.5px 0 0 27px; 
+  padding: 24.5px 0 0 27px;
   box-sizing: border-box;
 }
 
@@ -217,7 +219,7 @@ p{
 }
 
 .home {
-  background: url('/assets/showcase.jpg') no-repeat center center/cover ;
+  background: url('/assets/showcase.jpg') no-repeat center center/cover;
   height: 100vh;
   position: relative;
   color: #ffffff;
@@ -239,27 +241,28 @@ p{
   flex-direction: column;
 }
 
-.home .bien2{
+.home .bien2 {
   margin-right: 5%;
-  margin-bottom: 5% ;
+  margin-bottom: 5%;
   padding-top: 5%;
   width: 44%;
 }
 
-.home .bienvenida h1{
+.home .bienvenida h1 {
   font-family: 'Assistant', sans-serif;
   font-size: 72px;
   position: relative;
   padding-bottom: 12px;
 }
 
-#test h2::after , .home .bienvenida h1::after{
+#test h2::after,
+.home .bienvenida h1::after {
   position: absolute;
   content: '';
   left: 5%;
   bottom: 0;
-  background: rgb(127,200,169);
-  background: linear-gradient(90deg, rgba(127,200,169,1) 0%, rgba(213,238,187,1) 48%, rgba(95,122,97,1) 100%);
+  background: rgb(127, 200, 169);
+  background: linear-gradient(90deg, rgba(127, 200, 169, 1) 0%, rgba(213, 238, 187, 1) 48%, rgba(95, 122, 97, 1) 100%);
   width: 83%;
   height: 8px;
   opacity: 80%;
@@ -272,6 +275,144 @@ p{
   margin-bottom: 5%;
   font-weight: 300;
   font-size: 24px;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  .home .bien2 {
+    width: 60%;
+  }
+  
+  .home .bienvenida h1 {
+    font-size: 60px;
+  }
+  
+  .bienvenida p {
+    font-size: 20px;
+  }
+  
+  .navbar li {
+    width: 140px;
+    padding: 24.5px 0px 0px 20px;
+  }
+  
+  .navbar .submenu {
+    width: 140px;
+  }
+}
+
+@media (max-width: 992px) {
+  .navbar {
+    padding-left: 20px;
+    flex-direction: column;
+    height: auto;
+    padding-bottom: 10px;
+  }
+  
+  .navbar nav {
+    width: 100%;
+  }
+  
+  .navbar ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .navbar li {
+    width: 120px;
+    padding: 15px 0;
+    height: auto;
+  }
+  
+  .navbar li a {
+    padding: 10px 0;
+  }
+  
+  .navbar .submenu {
+    width: 120px;
+  }
+  
+  .home .bien2 {
+    width: 80%;
+    margin-right: 10%;
+  }
+  
+  .home .bienvenida h1 {
+    font-size: 48px;
+  }
+  
+  .bienvenida p {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar ul {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+  }
+  
+  .navbar li {
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+  }
+  
+  .navbar li::before {
+    display: none;
+  }
+  
+  .navbar .submenu {
+    position: static;
+    width: 100%;
+  }
+  
+  .home .bienvenida {
+    align-items: center;
+    text-align: center;
+  }
+  
+  .home .bien2 {
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 15%;
+  }
+  
+  .home .bienvenida h1 {
+    font-size: 36px;
+  }
+  
+  .bienvenida p {
+    font-size: 16px;
+    margin: 10px 5% 20px;
+  }
+  
+  #test h2::after,
+  .home .bienvenida h1::after {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo h1 {
+    font-size: 32px;
+  }
+  
+  .logo h2 {
+    font-size: 12px;
+  }
+  
+  .home .bienvenida h1 {
+    font-size: 28px;
+  }
+  
+  .bienvenida p {
+    font-size: 14px;
+  }
 }
 
 .testimonials-section {
