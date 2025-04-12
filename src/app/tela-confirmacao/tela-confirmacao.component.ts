@@ -1,5 +1,5 @@
-import { CommonModule, NgFor, NgIf } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { CommonModule, isPlatformBrowser, NgFor, NgIf } from '@angular/common';
+import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,12 +11,14 @@ import { Router } from '@angular/router';
 export class TelaConfirmacaoComponent implements OnInit {
   agendamentos: any[] = [];
 
-  constructor(private router: Router) {}
+  constructor(@Inject(PLATFORM_ID) private platformId: Object ,private router: Router) {}
 
   ngOnInit(): void {
-    const agendamentosSalvos = localStorage.getItem('agendamentosOdontoHub');
-    if (agendamentosSalvos) {
-      this.agendamentos = JSON.parse(agendamentosSalvos);
+    if (isPlatformBrowser(this.platformId)) {
+      const agendamentosSalvos = localStorage.getItem('agendamentosOdontoHub');
+      if (agendamentosSalvos) {
+        this.agendamentos = JSON.parse(agendamentosSalvos);
+      }
     }
   }
 
