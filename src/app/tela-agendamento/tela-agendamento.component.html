@@ -12,21 +12,23 @@
         <header class="main-header">
             <div class="header-content">
                 <div class="logo-container">
+                  
                     <a routerLink="/" class="logo">
                         <i class="fas fa-tooth dental-icon"></i>
                         <h1>Odonto<span>Hub</span></h1>
                     </a>
-                    <p class="tagline">Sua saúde bucal em primeiro lugar</p>
+                    <p class="tagline">Sua saúde bucal em primeiro lugar, marque uma consulta.</p>
                 </div>
                 
                 <nav class="navigation">
                     <div class="user-options">
+                         <a class="btn-agendados" href="/" style="margin: 5px;">
+                            <i class="fa-solid fa-arrow-left"></i> Voltar
+                        </a> 
                         <a class="btn-agendados" (click)="irParaAgendados()">
                             <i class="far fa-calendar-alt"></i> Meus Agendamentos
                         </a>
-                        <a class="btn-agendados" href="/" style="margin-left: 15px;">
-                            <i class="fa-solid fa-arrow-left"></i> Voltar
-                        </a>
+                        
                     </div>
                 </nav>
             </div>
