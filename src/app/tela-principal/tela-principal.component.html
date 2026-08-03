@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="OdontoHub - Clínica odontológica em Águas Claras, Brasília. Clareamento, ortodontia, implantes, odontopediatria e mais, com atendimento humanizado e tecnologia avançada.">
+    <meta name="theme-color" content="#62A651">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -18,6 +20,7 @@
                 <h1 style="line-height: 1; font-family: 'Alegreya Sans SC', sans-serif;" class="color-primary">OdontoHub</h1>
                 <h2 style="line-height: 1; font-family: 'Alegreya Sans SC', sans-serif;">Clinica Odontológica</h2>
             </a>
+
             <nav>
                 <ul>
                     <li><a href="#">Início</a></li>
@@ -59,35 +62,51 @@
             <h2>+10 Anos</h2>
             <p>de Mercado</p>
         </div>
+        <div class="info-box">
+            <h2><i class="fas fa-star"></i> {{ avaliacaoGoogle }}</h2>
+            <p>Avaliação no Google</p>
+        </div>
     </div>
 
     <div id="servicos" class="services-container">
         <h2>SERVIÇOS</h2>
         <h3>Como podemos ajudá-lo a se sentir melhor?</h3>
         <div class="services-grid">
-            <div class="service">
+            <div id="clareamento" class="service">
+                <i class="fas fa-sun service-icon"></i>
                 <h4>Clareamento Dental</h4>
                 <p>Sorrisos mais brancos e brilhantes com tratamentos seguros e eficazes para realçar sua beleza natural.</p>
+                <a (click)="irParaAgendamento()" class="service-link">Saiba mais <i class="fas fa-arrow-right"></i></a>
             </div>
-            <div class="service">
+            <div id="ortodontia" class="service">
+                <i class="fas fa-teeth service-icon"></i>
                 <h4>Ortodontia</h4>
                 <p>Correção alinhada e personalizada para dentes perfeitos, com aparelhos fixos ou invisíveis.</p>
+                <a (click)="irParaAgendamento()" class="service-link">Saiba mais <i class="fas fa-arrow-right"></i></a>
             </div>
-            <div class="service">
+            <div id="implantes" class="service">
+                <i class="fas fa-tooth service-icon"></i>
                 <h4>Implantes Dentários</h4>
                 <p>Soluções permanentes e naturais para reposição de dentes, devolvendo função e estética ao seu sorriso.</p>
+                <a (click)="irParaAgendamento()" class="service-link">Saiba mais <i class="fas fa-arrow-right"></i></a>
             </div>
-            <div class="service">
+            <div id="odontopediatria" class="service">
+                <i class="fas fa-child service-icon"></i>
                 <h4>Odontopediatria</h4>
                 <p>Cuidados especializados para crianças, criando uma experiência positiva e saudável desde cedo.</p>
+                <a (click)="irParaAgendamento()" class="service-link">Saiba mais <i class="fas fa-arrow-right"></i></a>
             </div>
-            <div class="service">
+            <div id="canal" class="service">
+                <i class="fas fa-syringe service-icon"></i>
                 <h4>Tratamento de Canal</h4>
                 <p>Alívio da dor e preservação do dente com procedimentos modernos e minimamente invasivos.</p>
+                <a (click)="irParaAgendamento()" class="service-link">Saiba mais <i class="fas fa-arrow-right"></i></a>
             </div>
-            <div class="service">
+            <div id="prevencao" class="service">
+                <i class="fas fa-shield-alt service-icon"></i>
                 <h4>Prevenção e Limpeza</h4>
                 <p>Manutenção da saúde bucal com profilaxia profissional e orientações personalizadas.</p>
+                <a (click)="irParaAgendamento()" class="service-link">Saiba mais <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
     </div>
@@ -145,27 +164,27 @@
                 <img src="assets/img_dentistas/joao.jpg"
                     alt="Dr. João Silva">
                 <h4>Dr. João Silva</h4>
-                <p>Especialista em Ortodontia</p>
+                <span class="specialty-badge">Especialista em Ortodontia</span>
                 <p>Com mais de 10 anos de experiência, o Dr. João é referência em tratamentos ortodônticos.</p>
             </div>
             <div class="team-member">
                 <img src="assets/img_dentistas/maria.jpg" alt="Dra. Maria Oliveira">
                 <h4>Dra. Maria Oliveira</h4>
-                <p>Especialista em Implantodontia</p>
+                <span class="specialty-badge">Especialista em Implantodontia</span>
                 <p>A Dra. Maria é especializada em implantes dentários e reabilitação oral.</p>
             </div>
             <div class="team-member">
                 <img src="assets/img_dentistas/carlos.jpg"
                     alt="Dr. Carlos Mendes">
                 <h4>Dr. Carlos Mendes</h4>
-                <p>Especialista em Endodontia</p>
+                <span class="specialty-badge">Especialista em Endodontia</span>
                 <p>O Dr. Carlos é experiente em tratamentos de canal e salvação de dentes.</p>
             </div>
             <div class="team-member">
                 <img src="assets/img_dentistas/ana.jpg"
                     alt="Dra. Ana Costa">
                 <h4>Dra. Ana Costa</h4>
-                <p>Especialista em Periodontia</p>
+                <span class="specialty-badge">Especialista em Periodontia</span>
                 <p>A Dra. Ana é especializada em tratamentos gengivais e saúde periodontal.</p>
             </div>
 
@@ -173,28 +192,28 @@
                 <img src="assets/img_dentistas/pedro.jpg"
                     alt="Dr. Pedro Almeida">
                 <h4>Dr. Pedro Almeida</h4>
-                <p>Especialista em Odontopediatria</p>
+                <span class="specialty-badge">Especialista em Odontopediatria</span>
                 <p>O Dr. Pedro é dedicado ao cuidado dental de crianças, com abordagem lúdica e acolhedora.</p>
             </div>
             <div class="team-member">
                 <img src="assets/img_dentistas/fernanda.jpg"
                     alt="Dra. Fernanda Lima">
                 <h4>Dra. Fernanda Lima</h4>
-                <p>Especialista em Dentística</p>
+                <span class="specialty-badge">Especialista em Dentística</span>
                 <p>A Dra. Fernanda é especializada em estética dental e restaurações.</p>
             </div>
             <div class="team-member">
                 <img src="assets/img_dentistas/ricardo.jpg"
                     alt="Dr. Ricardo Souza">
                 <h4>Dr. Ricardo Souza</h4>
-                <p>Especialista em Cirurgia Bucomaxilofacial</p>
+                <span class="specialty-badge">Especialista em Cirurgia Bucomaxilofacial</span>
                 <p>O Dr. Ricardo é experiente em cirurgias complexas e traumas faciais.</p>
             </div>
             <div class="team-member">
                 <img src="assets/img_dentistas/camila.jpg"
                     alt="Dra. Camila Rocha">
                 <h4>Dra. Camila Rocha</h4>
-                <p>Especialista em Prótese Dentária</p>
+                <span class="specialty-badge">Especialista em Prótese Dentária</span>
                 <p>A Dra. Camila é especializada em próteses fixas e removíveis.</p>
             </div>
         </div>
@@ -280,9 +299,7 @@
             <!-- Depoimento 1 -->
             <div class="testimonial-card">
                 <div class="social-badge">
-                    <svg viewBox="0 0 24 24" class="twitter-icon">
-                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                    </svg>
+                    <i class="fas fa-quote-right"></i>
                 </div>
                 <div class="testimonial-header">
                     <img src="assets/img_depoimentos/carloseduardo.jpg" alt="Carlos Eduardo" class="client-photo">
@@ -301,9 +318,7 @@
             <!-- Depoimento 2 -->
             <div class="testimonial-card">
                 <div class="social-badge">
-                    <svg viewBox="0 0 24 24" class="twitter-icon">
-                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                    </svg>
+                    <i class="fas fa-quote-right"></i>
                 </div>
                 <div class="testimonial-header">
                     <img src="assets/img_depoimentos/anapaula.jpg" alt="Ana Paula" class="client-photo">
@@ -322,9 +337,7 @@
             <!-- Depoimento 3 -->
             <div class="testimonial-card">
                 <div class="social-badge">
-                    <svg viewBox="0 0 24 24" class="twitter-icon">
-                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                    </svg>
+                    <i class="fas fa-quote-right"></i>
                 </div>
                 <div class="testimonial-header">
                     <img src="assets/img_depoimentos/robertasantos.jpg" alt="Roberto Santos" class="client-photo">
@@ -354,7 +367,10 @@
                 <div class="info-item">
                     <i class="fas fa-map-marker-alt"></i>
                     <h4>Endereço</h4>
-                    <p>Av. Araúcarias, Águas Claras, 346</p>
+                    <p>{{ endereco }}</p>
+                    <a [href]="linkComoChegar" target="_blank" rel="noopener" class="btn-directions">
+                        <i class="fas fa-route"></i> Como chegar
+                    </a>
                 </div>
                 <div class="info-item">
                     <i class="fas fa-clock"></i>
@@ -377,16 +393,16 @@
             <div class="contact-details">
                 <div class="detail-item">
                     <i class="fas fa-map-marker-alt"></i>
-                    <p>Av. Araucárias, Águas Claras, 346</p>
+                    <p>{{ endereco }}</p>
                 </div>
-                <div class="detail-item">
+                <a class="detail-item" [href]="linkEmail">
                     <i class="fas fa-envelope"></i>
-                    <p>contato&#64;odontohub.com</p>
-                </div>
-                <div class="detail-item">
+                    <p>{{ email }}</p>
+                </a>
+                <a class="detail-item" [href]="linkTelefone">
                     <i class="fas fa-phone"></i>
-                    <p>(61) 97654-3210</p>
-                </div>
+                    <p>{{ telefoneExibicao }}</p>
+                </a>
             </div>
             <a (click)="irParaAgendamento()" class="btn-agenda" style="cursor: pointer;">
                 <i  class="fas fa-calendar-check"></i> Agende sua consulta
@@ -403,18 +419,19 @@
                 </div>
                 <p class="footer-about">Transformando sorrisos, transformando vidas. Nossa missão é proporcionar saúde bucal com excelência e conforto.</p>
                 <div class="socials">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a [href]="linkWhatsapp" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
             
             <div class="footer-section links">
                 <h3>Links Úteis</h3>
                 <ul>
-                    <li><a href="#">Sobre Nós</a></li>
-                    <li><a href="#">Nossos Serviços</a></li>
-                    <li><a href="#">Equipe Profissional</a></li>
+                    <li><a href="#sobre">Sobre Nós</a></li>
+                    <li><a href="#servicos">Nossos Serviços</a></li>
+                    <li><a href="#equipe">Equipe Profissional</a></li>
+                    <li><a (click)="irParaAgendamento()" style="cursor: pointer;">Agendar Consulta</a></li>
                     <li><a href="#">Política de Privacidade</a></li>
                     <li><a href="#">Termos de Uso</a></li>
                 </ul>
@@ -422,10 +439,10 @@
             
             <div class="footer-section contact">
               <h3>Contato</h3>
-              <p><i class="fas fa-map-marker-alt"></i> Av. Araucárias, Águas Claras, 346</p>
-              <p><i class="fas fa-phone"></i> (61) 97654-3210</p>
-              <p><i class="fas fa-envelope"></i> contato&#64;odontohub.com</p>
-              <p><i class="fas fa-clock"></i> Seg-Sex: 8h-18h | Finais de semana: Fechado</p>
+              <p><i class="fas fa-map-marker-alt"></i> {{ endereco }}</p>
+              <p><a [href]="linkTelefone"><i class="fas fa-phone"></i> {{ telefoneExibicao }}</a></p>
+              <p><a [href]="linkEmail"><i class="fas fa-envelope"></i> {{ email }}</a></p>
+              <p><i class="fas fa-clock"></i> Seg-Sex: 8h-18h | Sáb: 9h-13h | Dom: Fechado</p>
             </div>
         </div>
         
@@ -433,5 +450,9 @@
             <p style="font-size: 13px;">&copy; 2025 OdontoHub. Todos os direitos reservados.</p>
         </div>
     </footer>
+
+    <a [href]="linkWhatsapp" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Fale conosco no WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 </body>
 </html>

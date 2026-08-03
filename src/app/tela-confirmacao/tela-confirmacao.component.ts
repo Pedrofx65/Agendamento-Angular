@@ -47,7 +47,7 @@ export class TelaConfirmacaoComponent implements OnInit {
     const servico = servicos.find(s => s.value === servicoValue);
     return servico ? servico.label : servicoValue;
   }
-
+  
   formatarData(data: string): string {
     if (!data) return '';
     const date = new Date(data);
