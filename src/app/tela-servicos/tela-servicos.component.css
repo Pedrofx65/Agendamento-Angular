@@ -1,0 +1,22 @@
+/* Minimal stylesheet for Services placeholder */
+.dev-container{ min-height:60vh; display:flex; align-items:center; justify-content:center; flex-direction:column; text-align:center; padding:2rem; }
+.dev-container h2{ font-size:1.6rem; color:#00453A; margin-bottom:.5rem; }
+.dev-container p{ color:#666; }
+
+.btn-voltar{
+  background: transparent;
+  border: 1px solid #00453A;
+  color: #00453A;
+  padding: .45rem .9rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight:600;
+  margin-bottom: 1rem;
+  transition: background .12s ease, color .12s ease, transform .12s ease;
+}
+
+.btn-voltar:hover{
+  background: #00453A;
+  color: #fff;
+  transform: translateY(-2px);
+}

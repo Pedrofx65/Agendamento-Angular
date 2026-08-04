@@ -23,6 +23,10 @@ export class TelaPrincipalComponent {
     this.router.navigate(['/agendamento']);
   }
 
+  irParaServicos() {
+    this.router.navigate(['/servicos']);
+  }
+
   get linkWhatsapp(): string {
     return `https://wa.me/${this.telefoneDDI}?text=${encodeURIComponent(this.mensagemWhatsapp)}`;
   }

@@ -192,12 +192,25 @@ p{
   color: #4B4B4B;
   text-decoration: none;
   transition: all 0.3s ease;
+  background-color: transparent;
 }
 
+.navbar .submenu li { background-color: transparent; }
+
+/* Ensure anchors without href (ng click) get same visual treatment */
+.navbar .submenu li:hover,
+.navbar .submenu li:hover > a,
 .navbar .submenu a:hover {
-  background-color: rgba(200, 190, 120, 0.92);
+  background-color: rgba(200, 190, 120, 0.92) !important;
   color: #62A651;
 }
+
+/* Reset focus/active states uniformly */
+.navbar .submenu a:focus,
+.navbar .submenu a:active {
+  background-color: rgba(200, 190, 120, 0.92) !important;
+}
+
 
 .navbar li.has-submenu:hover .submenu {
   display: block;
@@ -801,7 +814,7 @@ h1 {
   margin-bottom: 10px;
   font-size: 28px;
   color: #212529;
-  text-align: left;
+  text-align: center; /* centraliza o título do serviço */
 }
 
 .service p {
