@@ -53,6 +53,11 @@
                                     {{ servico.label }}
                                 </option>
                             </select>
+                            <div *ngIf="getServicoMeta(agendamentoForm.value.servico)" class="service-meta">
+                                <small><strong>Duração:</strong> {{ getServicoMeta(agendamentoForm.value.servico)?.durationMinutes }} min</small>
+                                &nbsp;•&nbsp;
+                                <small><strong>Preço:</strong> R$ {{ getServicoMeta(agendamentoForm.value.servico)?.price | number:'1.2-2' }}</small>
+                            </div>
                             <div *ngIf="agendamentoForm.get('servico')?.invalid && (agendamentoForm.get('servico')?.touched || submitted)" 
                                  class="error-message">
                                 Por favor, selecione um serviço
@@ -106,6 +111,9 @@
                                 <span *ngIf="agendamentoForm.get('hora')?.errors?.['required']">Horário é obrigatório</span>
                                 <span *ngIf="agendamentoForm.get('hora')?.errors?.['minTime'] || agendamentoForm.get('hora')?.errors?.['maxTime']">
                                     Horário deve ser entre 08:00 e 18:00
+                                </span>
+                                <span *ngIf="agendamentoForm.get('hora')?.errors?.['pastTime']">
+                                    Horário já passou — selecione um horário futuro
                                 </span>
                             </div>
                         </div>
@@ -174,15 +182,34 @@
                             <span *ngIf="!submitting"><i class="fas fa-calendar-plus"></i> Confirmar Agendamento</span>
                             <span *ngIf="submitting" class="loading-spinner"></span>
                         </button>
-            
-                        <div *ngIf="successMessage" class="success-message">
-                            <i class="fas fa-check-circle"></i> {{ successMessage }}
-                        </div>
-            
+
                         <div *ngIf="errorMessage" class="error-message">
                             <i class="fas fa-exclamation-circle"></i> {{ errorMessage }}
                         </div>
                     </form>
+
+                    <!-- Success Modal -->
+                    <div *ngIf="showSuccessModal" class="modal-overlay">
+                      <div class="success-modal">
+                        <div class="success-modal-header">
+                          <i class="fas fa-check-circle"></i>
+                          <h2>Agendamento Confirmado</h2>
+                        </div>
+                        <div class="success-modal-body">
+                          <p>{{ successMessage }}</p>
+                          <ul class="success-details">
+                            <li><strong>Serviço:</strong> {{ getServicoLabel(latestAgendamento?.servico) }}</li>
+                            <li><strong>Profissional:</strong> {{ latestAgendamento?.profissional?.nome }}</li>
+                            <li><strong>Data:</strong> {{ formatarData(latestAgendamento?.data) }}</li>
+                            <li><strong>Horário:</strong> {{ latestAgendamento?.hora }}</li>
+                          </ul>
+                        </div>
+                        <div class="success-modal-actions">
+                          <button class="btn-cancel" (click)="closeSuccessModal()">Fechar</button>
+                          <button class="btn-confirm" (click)="verAgendamentos()">Ver Meus Agendamentos</button>
+                        </div>
+                      </div>
+                    </div>
                 </section>
             </div>
         </main>
@@ -236,6 +263,7 @@
                     <p><strong>Profissional:</strong> {{ profissionalSelecionado?.nome }}</p>
                     <p><strong>Data:</strong> {{ formatarData(agendamentoForm.value.data) }}</p>
                     <p><strong>Horário:</strong> {{ agendamentoForm.value.hora }}</p>
+                    <p *ngIf="getServicoMeta(agendamentoForm.value.servico)"><strong>Duração:</strong> {{ getServicoMeta(agendamentoForm.value.servico)?.durationMinutes }} min &nbsp;•&nbsp; <strong>Preço:</strong> R$ {{ getServicoMeta(agendamentoForm.value.servico)?.price | number:'1.2-2' }}</p>
                     <p><strong>Paciente:</strong> {{ agendamentoForm.value.nome }}</p>
                     <p><strong>Telefone:</strong> {{ agendamentoForm.value.telefone }}</p>
                     

@@ -28,18 +28,24 @@ export class TelaAgendamentoComponent implements OnInit {
   successMessage = '';
   errorMessage = '';
   showConfirmationModal = false;
+  showSuccessModal = false;
+  latestAgendamento: any = null;
   
   minDate: string;
   maxDate: string;
   
   servicosDisponiveis = [
-    { value: 'clareamento', label: 'Clareamento' },
-    { value: 'canal', label: 'Tratamento de Canal' },
-    { value: 'carie', label: 'Tratamento de Cárie' },
-    { value: 'avaliacao', label: 'Avaliação' },
-    { value: 'extracao', label: 'Extração Dentária' },
-    { value: 'cirurgias', label: 'Cirúrgias' },
+    { value: 'clareamento', label: 'Clareamento', durationMinutes: 60, price: 350.00 },
+    { value: 'canal', label: 'Tratamento de Canal', durationMinutes: 90, price: 420.00 },
+    { value: 'carie', label: 'Tratamento de Cárie', durationMinutes: 45, price: 180.00 },
+    { value: 'avaliacao', label: 'Avaliação', durationMinutes: 20, price: 80.00 },
+    { value: 'extracao', label: 'Extração Dentária', durationMinutes: 40, price: 200.00 },
+    { value: 'cirurgias', label: 'Cirúrgias', durationMinutes: 120, price: 800.00 },
   ];
+
+  getServicoMeta(servicoValue: string) {
+    return this.servicosDisponiveis.find(s => s.value === servicoValue) || null;
+  }
 
   profissionais: Profissional[] = [
     {
@@ -148,17 +154,34 @@ export class TelaAgendamentoComponent implements OnInit {
   timeValidator(): ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null => {
       if (!control.value) return null;
-      
+
       const [hours, minutes] = control.value.split(':').map(Number);
-      
+
       if (hours < 8 || (hours === 8 && minutes < 0)) {
         return { minTime: true };
       }
-      
+
       if (hours > 18 || (hours === 18 && minutes > 0)) {
         return { maxTime: true };
       }
-      
+
+      // Prevent selecting a past time when the date is today
+      try {
+        const parent = control.parent as FormGroup | null;
+        const dateValue = parent?.get('data')?.value;
+        if (dateValue) {
+          const selected = new Date(dateValue);
+          selected.setHours(hours, minutes, 0, 0);
+
+          const now = new Date();
+          if (selected < now) {
+            return { pastTime: true };
+          }
+        }
+      } catch (e) {
+        // ignore errors reading parent
+      }
+
       return null;
     };
   }
@@ -199,36 +222,53 @@ export class TelaAgendamentoComponent implements OnInit {
   confirmarAgendamento(): void {
     this.showConfirmationModal = false;
     this.submitting = true;
-    
+
     const novoAgendamento = {
       ...this.agendamentoForm.value,
       profissional: this.profissionalSelecionado,
       dataAgendamento: new Date().toISOString(),
       id: Date.now()
     };
-    
+
     const agendamentosSalvos = localStorage.getItem('agendamentosOdontoHub');
     let agendamentos = agendamentosSalvos ? JSON.parse(agendamentosSalvos) : [];
     agendamentos.push(novoAgendamento);
     localStorage.setItem('agendamentosOdontoHub', JSON.stringify(agendamentos));
-     
+
     setTimeout(() => {
       this.submitting = false;
-      this.successMessage = 'Agendamento realizado com sucesso!';
-      
+
       const lembretes = [];
       if (this.agendamentoForm.value.lembreteEmail) lembretes.push('e-mail');
       if (this.agendamentoForm.value.lembreteSMS) lembretes.push('SMS');
       if (this.agendamentoForm.value.lembreteWhatsApp) lembretes.push('WhatsApp');
-      
+
+      let message = 'Sua consulta foi agendada com sucesso!';
       if (lembretes.length > 0) {
-        this.successMessage += ` Você receberá lembretes por ${lembretes.join(' e ')}.`;
+        message += ` Você receberá lembretes por ${lembretes.join(' e ')}.`;
       }
-      
+
+      // show success modal with details
+      this.successMessage = message;
+      this.latestAgendamento = novoAgendamento;
+      this.showSuccessModal = true;
+
+      // reset form state
       this.agendamentoForm.reset();
       this.submitted = false;
       this.profissionalSelecionado = null;
-    }, 1500);
+    }, 1000);
+  }
+
+  closeSuccessModal(): void {
+    this.showSuccessModal = false;
+    // keep successMessage for any logging but clear latest details
+    this.latestAgendamento = null;
+  }
+
+  verAgendamentos(): void {
+    this.closeSuccessModal();
+    this.irParaAgendados();
   }
 
   cancelarAgendamento(): void {
