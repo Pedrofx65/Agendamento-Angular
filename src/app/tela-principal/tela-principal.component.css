@@ -1952,3 +1952,15 @@ a.detail-item:hover p {
     right: 15px;
   }
 }
+
+/* Agendar Rápido removido - estilos relacionados eliminados. */
+
+.faq-section { padding:50px 20px; background:#fff; max-width:1100px; margin:40px auto; border-radius:10px; box-shadow:0 6px 20px rgba(0,0,0,0.04); }
+.faq-section h2 { color:#00453A; margin-bottom:20px; text-align:left; }
+.faq-list details { background:#f7fbf8; padding:14px 18px; margin-bottom:10px; border-radius:8px; }
+.faq-list summary { cursor:pointer; font-weight:600; color:#222; }
+.faq-list p { margin-top:8px; color:#444; }
+
+@media (max-width:768px) {
+  .faq-section { margin:20px; padding:20px; }
+}

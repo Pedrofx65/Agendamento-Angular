@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-tela-principal',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './tela-principal.component.html',
   styleUrl: './tela-principal.component.css'
 })
@@ -42,4 +43,5 @@ export class TelaPrincipalComponent {
   get linkComoChegar(): string {
     return `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(this.endereco)}`;
   }
+
 }

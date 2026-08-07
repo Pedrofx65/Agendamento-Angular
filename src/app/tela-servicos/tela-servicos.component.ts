@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tela-servicos',
-  imports: [CommonModule, NgFor],
+  imports: [CommonModule],
   templateUrl: './tela-servicos.component.html',
   styleUrls: ['./tela-servicos.component.css']
 })
